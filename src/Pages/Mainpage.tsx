@@ -7,6 +7,15 @@ export default function Mainpage() {
         <>
         <ButtonAppBar />
         <ThisIsIHNN/>
+        {/* Struktur Beispiel */}
+        {/* 
+        <Box> 
+            <ThisIsIHNN/>
+                <Box>
+                    <CreateQuestion/> 
+                    <CreateGroup/> 
+                <Box/> 
+        <Box/> */}
         </>
     );
 }
