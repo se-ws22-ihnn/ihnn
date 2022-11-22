@@ -1,0 +1,40 @@
+version: "3.9"
+
+# ENV:
+# DBUSER    username for the database
+# DBPASS    password for the database
+
+volumes:
+    ihnn-mongo:
+        external: true
+
+networks:
+    default:
+        name: nginx-proxy-manager_default
+        external: true
+
+services:
+    app:
+        image: ghcr.io/se-ws22-ihnn/ihnn:latest
+        restart: unless-stopped
+        ports:
+            - 3535:3000
+        environment:
+            - APP_DB_HOST=mongodb
+            - APP_DB_USER=${DBUSER}
+            - APP_DB_PASS=${DBPASS}
+        links:
+            - mongodb
+        depends_on:
+            - mongodb
+
+    mongodb:
+        image: mongo
+        restart: unless-stopped
+        ports:
+            - 3537:27017 # allows mongodb to be reachable from outside ! NOT RECOMMENDED TO DO SO !
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=${DBUSER}
+            - MONGO_INITDB_ROOT_PASSWORD=${DBPASS}
+        volumes:
+            - ihnn-mongo:/data/db
