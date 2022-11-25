@@ -13,7 +13,8 @@ export default function Mainpage() {
             <ThisIsIHNN/>
                 <Box>
                     <CreateQuestion/> 
-                    <CreateGroup/> 
+                    <CreateGroup/>
+                    <Button StartGame/>
                 <Box/> 
         <Box/> */}
         </>
