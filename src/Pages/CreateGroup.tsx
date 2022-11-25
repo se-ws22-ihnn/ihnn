@@ -4,7 +4,6 @@ import ButtonAppBar from "../Components/Header";
 export default function CreateGroup() {
   return (
     <>
-      <ButtonAppBar />
       {/* Struktur Beispiel */}
       {/* 
         <Box> 

@@ -1,22 +1,22 @@
+import { Box } from '@mui/material';
 import * as React from 'react';
+import CreateQuestion from '../Components/CreateQuestion';
 import ButtonAppBar from '../Components/Header';
 import ThisIsIHNN from '../Components/ThisIsIHNN';
+import CreateGroup from './CreateGroup';
 
 export default function Mainpage() {
     return(
         <>
-        <ButtonAppBar />
-        <ThisIsIHNN/>
-        {/* Struktur Beispiel */}
-        {/* 
+        
         <Box> 
             <ThisIsIHNN/>
                 <Box>
                     <CreateQuestion/> 
                     <CreateGroup/>
-                    <Button StartGame/>
-                <Box/> 
-        <Box/> */}
+                </Box> 
+        </Box>
+    
         </>
     );
 }

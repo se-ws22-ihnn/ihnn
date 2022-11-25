@@ -4,7 +4,7 @@ import ButtonAppBar from "../Components/Header";
 export default function Game() {
   return (
     <>
-      <ButtonAppBar />
+      
       {/* Struktur Beispiel */}
       {/* 
         <Box> 

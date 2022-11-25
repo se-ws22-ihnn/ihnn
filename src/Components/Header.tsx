@@ -14,14 +14,14 @@ export default function ButtonAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-        <ExploreIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <ExploreIcon sx={{ display: { xs: 'flex', md: 'flex' }, mr: 1 }} />
         <Typography
             variant="h6"
             noWrap
             component="a"
             href="/"
             sx={{
-              display: { xs: 'none', md: 'flex' },
+              display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
@@ -32,7 +32,8 @@ export default function ButtonAppBar() {
             IHNN
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          {/* box should be right aligned/justified  */}
+          <Box sx={{  display: { xs: 'flex', md: 'flex' } }}>
           <Button color="inherit">About Us</Button>
           </Box>
             
