@@ -6,8 +6,10 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import ExploreIcon from "@mui/icons-material/Explore";
-import { Divider } from "@mui/material";
+import { Divider, Stack } from "@mui/material";
 import CreateQuestion from "./CreateQuestion";
+import ThemeController from "./ThemeController";
+import AboutIhnnDialog from "./AboutIHNN";
 
 export default function ButtonAppBar() {
 	return (
@@ -49,9 +51,14 @@ export default function ButtonAppBar() {
 					<Box sx={{ display: { marginRight: "auto" } }}>
 						<CreateQuestion />
 					</Box>
+							
+					<Box sx={{ display: { marginLeft: "auto" }}}>
+					<Stack direction="row" spacing={2}>
+					<AboutIhnnDialog />
+						{/* Optional Theme Selector as nice to have, currently placeholder */}
+						<ThemeController />
+						</Stack>
 
-					<Box sx={{ display: { marginLeft: "auto" } }}>
-						<Button color="inherit">About Us</Button>
 					</Box>
 				</Toolbar>
 			</AppBar>
