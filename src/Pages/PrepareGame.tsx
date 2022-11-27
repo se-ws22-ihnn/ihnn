@@ -21,7 +21,7 @@ export default function PrepareGame() {
 				<Grid container spacing={2}>
 					{/* for later use: grid layout with three boxes https://mui.com/material-ui/react-grid/
 					<Grid item xs={4}>
-						<Item>Settings</Item>
+						<Settings />
 					</Grid>
 					<Grid item xs={4}>
 						<ListGroupMember />
