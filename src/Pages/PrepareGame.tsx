@@ -4,6 +4,7 @@ import ButtonAppBar from "../Components/Header";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import { AddGroupMember, ListGroupMember } from "../Components/Group";
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -18,23 +19,22 @@ export default function PrepareGame() {
 		<>
 			<Box sx={{ flexGrow: 1 }}>
 				<Grid container spacing={2}>
-					{/* for later use: grid layout with three boxes
-              -> https://mui.com/material-ui/react-grid/
+					{/* for later use: grid layout with three boxes https://mui.com/material-ui/react-grid/
 					<Grid item xs={4}>
 						<Item>Settings</Item>
 					</Grid>
 					<Grid item xs={4}>
-						<Item>Current Players</Item>
+						<ListGroupMember />
 					</Grid>
 					<Grid item xs={4}>
-						<Item>Adding Players</Item>
+						<AddGroupMember />
 					</Grid> */}
 
 					<Grid item xs={6}>
-						<Item>Current Players</Item>
+						<ListGroupMember />
 					</Grid>
 					<Grid item xs={6}>
-						<Item>Adding Players</Item>
+						<AddGroupMember />
 					</Grid>
 				</Grid>
 			</Box>
