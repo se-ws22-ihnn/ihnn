@@ -38,7 +38,7 @@ export default function PrepareGame() {
 					<Grid item xs={6} >
 						<AddGroupMember />
 						<Box sx={{mt: 2}}>
-							<Button variant="contained">Spiel starten</Button>
+							<Button variant="contained" sx = {{backgroundColor:'rgba(81, 60, 41, 1)', color: "white"}}>Spiel starten</Button>
 						</Box>
 						
 					</Grid>

@@ -11,7 +11,7 @@ import { GroupContextProvider } from './Context/GroupContext';
 /* load it with  <div style={background.image}> */
 const background = {
     image: {
-        backgroundColor: '#fefe00',
+        backgroundColor: "#BFB59E" ,
         height: '100vh',
     },
 };
