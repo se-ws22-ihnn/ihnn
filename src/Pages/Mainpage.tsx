@@ -4,6 +4,7 @@ import CreateQuestion from "../Components/CreateQuestion";
 import ButtonAppBar from "../Components/Header";
 import AboutIHNN from "../Components/AboutIHNN";
 import PrepareGame from "./PrepareGame";
+import Game from "./Game";
 
 export default function Mainpage() {
 	return (
@@ -12,6 +13,7 @@ export default function Mainpage() {
 				{/* <AboutIHNN /> */}
 				<Box>
 					<PrepareGame />
+					<Game/>
 				</Box>
 			</Box>
 		</>

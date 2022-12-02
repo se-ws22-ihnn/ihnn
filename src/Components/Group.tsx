@@ -139,7 +139,7 @@ export function AddGroupMember() {
 
 	return (
 		<>
-			<Block>
+			<Block sx={{}}>
 				<h2>Spieler hinzuf&uuml;gen</h2>
 				<FormControl>
 					{/* <InputLabel id="name-label">Name</InputLabel> */}

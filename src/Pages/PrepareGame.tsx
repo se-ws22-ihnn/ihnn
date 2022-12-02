@@ -5,6 +5,8 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { AddGroupMember, ListGroupMember } from "../Components/Group";
+import { blue } from "@mui/material/colors";
+import { Button } from "@mui/material";
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -17,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function PrepareGame() {
 	return (
 		<>
-			<Box sx={{ flexGrow: 1 }}>
+			<Box sx={{ flexGrow: 1, m:2}}>
 				<Grid container spacing={2}>
 					{/* for later use: grid layout with three boxes https://mui.com/material-ui/react-grid/
 					<Grid item xs={4}>
@@ -33,8 +35,9 @@ export default function PrepareGame() {
 					<Grid item xs={6}>
 						<ListGroupMember />
 					</Grid>
-					<Grid item xs={6}>
+					<Grid item xs={6} >
 						<AddGroupMember />
+						<Button variant="outlined">Spiel starten</Button>
 					</Grid>
 				</Grid>
 			</Box>
