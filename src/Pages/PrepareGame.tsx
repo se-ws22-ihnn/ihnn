@@ -37,7 +37,10 @@ export default function PrepareGame() {
 					</Grid>
 					<Grid item xs={6} >
 						<AddGroupMember />
-						<Button variant="outlined">Spiel starten</Button>
+						<Box sx={{mt: 2}}>
+							<Button variant="contained">Spiel starten</Button>
+						</Box>
+						
 					</Grid>
 				</Grid>
 			</Box>
