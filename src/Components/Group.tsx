@@ -27,6 +27,7 @@ import { Player } from '../types/playerType';
 // icon imports
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { GroupContext } from '../Context/GroupContext';
 
 // own palette of colors available for the avatar
 const avatarcolors = {
@@ -55,6 +56,7 @@ const Block = styled(Paper)(({ theme }) => ({
 /* variable um dort alle gruppendaten einzulagern */
 
 export function ListGroupMember() {
+    const { group, setGroup } = React.useContext(GroupContext);
     return (
         <>
             <Block>
@@ -69,54 +71,35 @@ export function ListGroupMember() {
                     >
                         <TableHead></TableHead>
                         <TableBody>
-                            {/* hier durch die verschiedenen Einträge loopen, eine Row definieren und dann wiederholen lassen */}
-							group.map()
-                            <TableRow>
-                                <TableCell align="left">
-                                    <Avatar
-                                        sx={{ bgcolor: avatarcolors.green }}
-                                    >
-                                        N
-                                    </Avatar>
-                                </TableCell>
-                                <TableCell align="left">Norbert</TableCell>
-                                <TableCell align="right">
-                                    <IconButton
-                                        color="error"
-                                        aria-label="Eintrag entfernen"
-                                        component="label"
-                                        onClick={() => {
-                                            alert('gelöscht');
-                                        }}
-                                    >
-                                        <DeleteIcon />
-                                    </IconButton>
-                                </TableCell>
-                            </TableRow>
-
-                            {/* testweise */}
-                            <TableRow>
-                                <TableCell align="left">
-                                    <Avatar
-                                        sx={{ bgcolor: avatarcolors.purple }}
-                                    >
-                                        R
-                                    </Avatar>
-                                </TableCell>
-                                <TableCell align="left">Roland</TableCell>
-                                <TableCell align="right">
-                                    <IconButton
-                                        color="error"
-                                        aria-label="Eintrag entfernen"
-                                        component="label"
-                                        onClick={() => {
-                                            alert('gelöscht');
-                                        }}
-                                    >
-                                        <DeleteIcon />
-                                    </IconButton>
-                                </TableCell>
-                            </TableRow>
+                            {/* Table bauen pro Gruppenmitglied */}
+                            {group.map((currentPlayer) => (
+                                <TableRow>
+                                    <TableCell align="left">
+                                        <Avatar
+                                            sx={{
+                                                bgcolor: currentPlayer.color,
+                                            }}
+                                        >
+                                            {currentPlayer.shortname}
+                                        </Avatar>
+                                    </TableCell>
+                                    <TableCell align="left">
+                                        {currentPlayer.name}
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        <IconButton
+                                            color="error"
+                                            aria-label="Eintrag entfernen"
+                                            component="label"
+                                            onClick={() => {
+                                                alert('gelöscht');
+                                            }}
+                                        >
+                                            <DeleteIcon />
+                                        </IconButton>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
                         </TableBody>
                     </Table>
                 </TableContainer>
@@ -126,9 +109,8 @@ export function ListGroupMember() {
 }
 
 export function AddGroupMember() {
-    // useState erstellt eine Liste von Type Player die Anfangs leer ist
-    // group ist eine Liste von Objekten des Type Plyer
-    const [group, setGroup] = useState<Player[]>([]);
+    // group per useContext damit group global erreichbar und manipulibar ist
+    const { group, setGroup } = React.useContext(GroupContext);
 
     // useState for playerValues Object
     const [selectedColor, setSelectedColor] = React.useState(avatarcolors.blue);
