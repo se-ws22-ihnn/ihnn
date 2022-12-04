@@ -57,6 +57,24 @@ const Block = styled(Paper)(({ theme }) => ({
 
 export function ListGroupMember() {
     const { group, setGroup } = React.useContext(GroupContext);
+    
+    const removePlayerFromGroup = (selectedPlayer: Player) => {
+        console.log('playerToDelete: ' + selectedPlayer);
+
+        // get the index of the PlayerObject we like to delete
+        const index = group.indexOf(selectedPlayer);
+        console.log('index: ' + index);
+
+        // make a Copy of Group by array deconstructing 
+        let copyOfGroup = [...group];
+        console.log(copyOfGroup);
+
+        // remove the PlayerObject from the copyGroup
+        copyOfGroup.splice(index, 1);
+        
+        // new initialising of the Group by all the values from the copyGroup
+        setGroup([...copyOfGroup]);
+    };
     return (
         <>
             <Block>
@@ -91,9 +109,12 @@ export function ListGroupMember() {
                                             color="error"
                                             aria-label="Eintrag entfernen"
                                             component="label"
-                                            onClick={() => {
-                                                alert('gelöscht');
-                                            }}
+                                            onClick={() =>
+                                                removePlayerFromGroup(
+                                                    currentPlayer,
+                                                )
+                                            }
+                                            /* onClick={() => console.log(currentPlayer)} */
                                         >
                                             <DeleteIcon />
                                         </IconButton>
@@ -125,13 +146,12 @@ export function AddGroupMember() {
                 )[0][0] /* + if(playername.includes(" ")) { playername.split(' ')[1][0] } */,
             color: selectedColor,
         };
-        console.log('name: ' + newPlayer.name);
+        /* console.log('name: ' + newPlayer.name);
         console.log('sname: ' + newPlayer.shortname);
-        console.log('color: ' + newPlayer.color);
+        console.log('color: ' + newPlayer.color); */
 
         setGroup([...group, newPlayer]);
         // possible "BUG": Wenn zB ein dritter Spieler hinzugefügt wird, zeigt die Ausgabe erstmal nur zwei an. Beim vierten, werden dann drei angezeigt usw
-        console.log(group);
     };
 
     return (
