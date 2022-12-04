@@ -44,7 +44,7 @@ const Block = styled(Paper)(({ theme }) => ({
     backgroundColor:
         theme.palette.mode === 'dark'
             ? 'rgba(27, 33, 40, 0.8)'
-            : 'rgba(255, 255, 255, 0.8)',
+            : 'rgba(145, 115, 94, 1)',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'left',
@@ -104,7 +104,7 @@ export function ListGroupMember() {
                                     <TableCell align="left">
                                         {currentPlayer.name}
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="right" >
                                         <IconButton
                                             color="error"
                                             aria-label="Eintrag entfernen"
@@ -221,6 +221,7 @@ export function AddGroupMember() {
                         variant="contained"
                         endIcon={<PersonAddIcon />}
                         onClick={addPlayerToGroup}
+                        sx={{ bgcolor: avatarcolors.brown }}
                     >
                         Add
                     </Button>

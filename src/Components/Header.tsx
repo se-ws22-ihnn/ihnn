@@ -13,9 +13,13 @@ import AboutIhnnDialog from "./AboutIHNN";
 
 export default function ButtonAppBar() {
 	return (
-		<Box sx={{ flexGrow: 1 }}>
-			<AppBar position="static">
-				<Toolbar>
+		
+			<AppBar 
+			position="static"
+			>
+				<Toolbar
+				sx ={{backgroundColor:'rgba(81, 60, 41, 1)'}}
+				>
 					{/* Logo IHNN Section */}
 
 					<ExploreIcon
@@ -43,7 +47,7 @@ export default function ButtonAppBar() {
 						orientation="vertical"
 						variant="middle"
 						flexItem
-						color="white"
+						color="black"
 						sx={{ border: 1, mr: 1 }}
 					/>
 
@@ -62,6 +66,6 @@ export default function ButtonAppBar() {
 					</Box>
 				</Toolbar>
 			</AppBar>
-		</Box>
+		
 	);
 }
