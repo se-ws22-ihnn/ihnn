@@ -57,7 +57,7 @@ const Block = styled(Paper)(({ theme }) => ({
 
 export function ListGroupMember() {
     const { group, setGroup } = React.useContext(GroupContext);
-    
+
     const removePlayerFromGroup = (selectedPlayer: Player) => {
         console.log('playerToDelete: ' + selectedPlayer);
 
@@ -65,13 +65,13 @@ export function ListGroupMember() {
         const index = group.indexOf(selectedPlayer);
         console.log('index: ' + index);
 
-        // make a Copy of Group by array deconstructing 
+        // make a Copy of Group by array deconstructing
         let copyOfGroup = [...group];
         console.log(copyOfGroup);
 
         // remove the PlayerObject from the copyGroup
         copyOfGroup.splice(index, 1);
-        
+
         // new initialising of the Group by all the values from the copyGroup
         setGroup([...copyOfGroup]);
     };
@@ -104,7 +104,7 @@ export function ListGroupMember() {
                                     <TableCell align="left">
                                         {currentPlayer.name}
                                     </TableCell>
-                                    <TableCell align="right" >
+                                    <TableCell align="right">
                                         <IconButton
                                             color="error"
                                             aria-label="Eintrag entfernen"
@@ -221,7 +221,17 @@ export function AddGroupMember() {
                         variant="contained"
                         endIcon={<PersonAddIcon />}
                         onClick={addPlayerToGroup}
-                        sx={{ bgcolor: avatarcolors.brown }}
+                        sx={{
+                            bgcolor: '#795548',
+                            ':hover': {
+                                bgcolor: '#5d4037',
+                                color: 'white',
+                            },
+                            ':active': {
+                                bgcolor: '#5d4037',
+                                color: 'white',
+                            },
+                        }}
                     >
                         Add
                     </Button>
