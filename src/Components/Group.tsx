@@ -37,7 +37,7 @@ const avatarcolors = {
     teal: '#009688',
     green: '#4caf50',
     lime: '#cddc39',
-    brown: '#795548',
+    amber: '#ff9800',
 };
 
 const Block = styled(Paper)(({ theme }) => ({
@@ -174,6 +174,12 @@ export function AddGroupMember() {
                         }
                     >
                         <MenuItem
+                            sx={{ bgcolor: avatarcolors.amber }}
+                            value={avatarcolors.amber}
+                        >
+                            Orange
+                        </MenuItem>
+                        <MenuItem
                             sx={{ bgcolor: avatarcolors.pink }}
                             value={avatarcolors.pink}
                         >
@@ -208,12 +214,6 @@ export function AddGroupMember() {
                             value={avatarcolors.lime}
                         >
                             Limette
-                        </MenuItem>
-                        <MenuItem
-                            sx={{ bgcolor: avatarcolors.brown }}
-                            value={avatarcolors.brown}
-                        >
-                            Braun
                         </MenuItem>
                     </Select>
                     <br></br>
