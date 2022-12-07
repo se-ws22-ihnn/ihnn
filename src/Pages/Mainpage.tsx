@@ -5,6 +5,9 @@ import ButtonAppBar from "../Components/Header";
 import AboutIHNN from "../Components/AboutIHNN";
 import PrepareGame from "./PrepareGame";
 import Game from "./Game";
+import GroupVoting from "../Components/GroupVoting";
+import ShowQuestion from "../Components/ShowQuestion";
+
 
 export default function Mainpage() {
 	return (

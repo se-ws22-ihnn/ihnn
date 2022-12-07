@@ -4,7 +4,7 @@ import ButtonAppBar from '../Components/Header';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { AddGroupMember, ListGroupMember } from '../Components/Group';
+import { AddGroupMember, ListGroupMember } from '../Components/GroupCreation';
 import { blue } from '@mui/material/colors';
 import { Button } from '@mui/material';
 
