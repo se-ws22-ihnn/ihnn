@@ -1,6 +1,8 @@
 export type Player = {
+    playerId: number;
     name: string;
     shortname: string;
     color?: string;
-    votingCounter?: number;
+    iDidCounter?: number;
+    iDidNotCounter?: number;
 };

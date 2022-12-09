@@ -6,6 +6,7 @@ import ResponsiveAppBar from './Components/Header';
 import ButtonAppBar from './Components/Header';
 import Mainpage from './Pages/Mainpage';
 import { GroupContextProvider } from './Context/GroupContext';
+import { QuestionListContextProvider } from './Context/QuestionsListContext';
 
 /* adding a global visible background image to the page */
 /* load it with  <div style={background.image}> */
@@ -21,12 +22,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
+        <QuestionListContextProvider>
         <GroupContextProvider>
             <div style={background.image}>
                 <ButtonAppBar />
                 <Mainpage />
             </div>
         </GroupContextProvider>
+        </QuestionListContextProvider>
     </React.StrictMode>,
 );
 

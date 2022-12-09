@@ -4,12 +4,12 @@ import { Player } from '../types/playerType';
 // ===> Context to make the Grouplist from the useState public
 type ContextProps = {
     group: Player[];
-    setGroup: any;
+    setGroup: (value: any) => void;
   }
 //context variable with initial values
 const initValues: ContextProps = {
     group: [],
-    setGroup: function (): void {
+    setGroup: function (value: any): void {
         throw new Error('Function not implemented.');
     }
 }

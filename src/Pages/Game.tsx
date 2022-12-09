@@ -5,6 +5,7 @@ import styled from '@mui/system/styled';
 import ShowQuestion from '../Components/ShowQuestion';
 import GroupVoting from '../Components/GroupVoting';
 import { Button } from '@mui/material';
+import FinalScoreCard from '../Components/FinalScoreCard';
 
 const Item = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -26,7 +27,9 @@ export default function Game() {
         <Grid xs={6}>
           <Item><GroupVoting/></Item>
         </Grid>
-        <Button variant='contained' onClick={()=>{}}>Spiel beenden</Button>
+
+        {/* Beenden und Auswertung erhalten */}
+        <FinalScoreCard/>
         
       </Grid>
     </Box>

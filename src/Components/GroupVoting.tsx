@@ -34,8 +34,8 @@ export default function GroupVoting() {
                         <TableBody>
                             {/* Table bauen pro Gruppenmitglied */}
                             {group.map((currentPlayer) => (
-                                <TableRow>
-                                    <TableCell align="left">
+                                <TableRow key={currentPlayer.playerId}>
+                                    <TableCell align="left" key={currentPlayer.playerId}>
                                         <Avatar
                                             sx={{
                                                 bgcolor: currentPlayer.color,
@@ -44,10 +44,10 @@ export default function GroupVoting() {
                                             {currentPlayer.shortname}
                                         </Avatar>
                                     </TableCell>
-                                    <TableCell align="left">
+                                    <TableCell align="left" key={currentPlayer.playerId}>
                                         {currentPlayer.name}
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="right" key={currentPlayer.playerId}>
                                     <Switch />
                                     </TableCell>
                                 </TableRow>

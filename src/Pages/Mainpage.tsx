@@ -7,6 +7,9 @@ import PrepareGame from "./PrepareGame";
 import Game from "./Game";
 import GroupVoting from "../Components/GroupVoting";
 import ShowQuestion from "../Components/ShowQuestion";
+import FinalScoreCard from "../Components/FinalScoreCard";
+
+
 
 
 export default function Mainpage() {
@@ -17,6 +20,8 @@ export default function Mainpage() {
 				<Box>
 					<PrepareGame />
 					<Game/>
+					
+
 				</Box>
 			</Box>
 		</>
