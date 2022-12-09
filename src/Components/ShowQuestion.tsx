@@ -1,24 +1,26 @@
 import * as React from 'react';
 import { Button, Typography } from '@mui/material';
+import { QuestionListContext } from '../Context/QuestionsListContext';
+import { useState } from 'react';
+import { GroupContext } from '../Context/GroupContext';
 
 export default function ShowQuestion() {
+    const { questionList, setQuestionList } = React.useContext(QuestionListContext);
+    const { roundCounter, setRoundCounter } = React.useContext(GroupContext);
+
+    const handleNewRound = () => {
+
+        setRoundCounter(roundCounter + 1)
+
+    }
+    
     return (
         <div>
 			<h2>Ich habe noch nie ...</h2>
                 <Typography>
-                    IHNN steht für "Ich habe noch nie" und basiert auf dem
-                    belieben Trinkspiel mit identischen namen. In diesem Spiel
-                    wird der Gruppe bezüglich einer beliebigen Aktivität eine
-                    Frage gestellt. Unsere Version des Spiels bezieht sich auf
-                    Dinge die man auf eine "Bucketliste" schreiben würde, daher
-                    muss die Person mit der meisten Erfahrung in diesem Gebiet,
-                    im gegensatz zum namensgebenden Trinkspiel, nur davon
-                    erzählen anstatt einen 'Shot' zu nehmen. Da es sich bei
-                    diesem Projekt um eine Studienleistung handelt, haben wir
-                    natürlich, vernünftig wie wir sind, diese Spielregel
-                    angepasst.
+                    frage folgt hier
                 </Typography>
-				<Button variant='contained' onClick={()=>{}}>Nächste Frage</Button>
+				<Button variant='contained' onClick={handleNewRound}>Nächste Frage</Button>
         </div>
     );
 }

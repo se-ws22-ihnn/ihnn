@@ -23,7 +23,7 @@ import {
 } from '@mui/material';
 
 export default function FinalScoreCard() {
-    const { group, setGroup } = React.useContext(GroupContext);
+    const { group, setGroup, roundCounter } = React.useContext(GroupContext);
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -55,7 +55,7 @@ export default function FinalScoreCard() {
                                 backgroundColor: 'rgba(255, 255, 255, 0.5)',
                             }}
                         >
-                            <TableHead>Runden gespielt: xyz</TableHead>
+                            <TableHead>Runden gespielt: {roundCounter}</TableHead>
                             <TableBody>
                                 {/* Table bauen pro Gruppenmitglied */}
                                 {group.map((currentPlayer) => (
