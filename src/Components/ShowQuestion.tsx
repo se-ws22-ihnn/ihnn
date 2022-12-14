@@ -3,7 +3,6 @@ import { Button, Typography } from '@mui/material';
 import { QuestionListContext } from '../Context/QuestionsListContext';
 import { GroupContext } from '../Context/GroupContext';
 
-
 // diese Komponente muss mit Gorupvoting zusammengelegt werden, damit handleNewRound alle Werte erhält
 
 export default function ShowQuestion() {
@@ -15,7 +14,7 @@ export default function ShowQuestion() {
         // 2. votings der runde muss in jedem spieler berücksichtig und übergeben werden werde (i did oder i didnt +1)
         // 3.zurücksetzten der voting slider
         // 4. neu Frage anzeigen oder direkt im return() ????
-                // BUG: wenn liste leer bzw durch, wird nichts mehr gerendert
+        // BUG: wenn liste leer bzw durch, wird nichts mehr gerendert
         // ===> Liste könnte jedes mal random befüllt werden und roundcounter wäre dann gleichzeitig der index mit dem man eine neue frage abruft
         // ===> wenn ende der liste erreich, dann meldung und einfach wieder von vorne? oder spiel beenden?
 

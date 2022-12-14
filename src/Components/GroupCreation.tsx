@@ -92,7 +92,10 @@ export function ListGroupMember() {
                             {/* Table bauen pro Gruppenmitglied */}
                             {group.map((currentPlayer) => (
                                 <TableRow key={currentPlayer.playerId}>
-                                    <TableCell align="left" key={currentPlayer.playerId}>
+                                    <TableCell
+                                        align="left"
+                                        key={currentPlayer.playerId}
+                                    >
                                         <Avatar
                                             sx={{
                                                 bgcolor: currentPlayer.color,
@@ -101,10 +104,16 @@ export function ListGroupMember() {
                                             {currentPlayer.shortname}
                                         </Avatar>
                                     </TableCell>
-                                    <TableCell align="left" key={currentPlayer.playerId}>
+                                    <TableCell
+                                        align="left"
+                                        key={currentPlayer.playerId}
+                                    >
                                         {currentPlayer.name}
                                     </TableCell>
-                                    <TableCell align="right" key={currentPlayer.playerId}>
+                                    <TableCell
+                                        align="right"
+                                        key={currentPlayer.playerId}
+                                    >
                                         <IconButton
                                             color="error"
                                             aria-label="Eintrag entfernen"

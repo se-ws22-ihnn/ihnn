@@ -55,7 +55,9 @@ export default function FinalScoreCard() {
                                 backgroundColor: 'rgba(255, 255, 255, 0.5)',
                             }}
                         >
-                            <TableHead>Runden gespielt: {roundCounter}</TableHead>
+                            <TableHead>
+                                Runden gespielt: {roundCounter}
+                            </TableHead>
                             <TableBody>
                                 {/* Table bauen pro Gruppenmitglied */}
                                 {group.map((currentPlayer) => (
@@ -84,14 +86,14 @@ export default function FinalScoreCard() {
                                             key={currentPlayer.playerId}
                                         >
                                             <CheckCircleIcon />
-											{currentPlayer.iDidCounter}
+                                            {currentPlayer.iDidCounter}
                                         </TableCell>
-										<TableCell
+                                        <TableCell
                                             align="right"
                                             key={currentPlayer.playerId}
                                         >
                                             <CancelIcon />
-											{currentPlayer.iDidCounter}
+                                            {currentPlayer.iDidCounter}
                                         </TableCell>
                                     </TableRow>
                                 ))}
