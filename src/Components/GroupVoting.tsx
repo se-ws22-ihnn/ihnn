@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
-import { Avatar, Switch } from '@mui/material';
+import { Avatar, Radio, Switch } from '@mui/material';
 // Table Imports
 import {
     Table,
@@ -12,9 +12,11 @@ import {
 } from '@mui/material';
 // icon imports
 import { GroupContext } from '../Context/GroupContext';
+import { green, red } from '@mui/material/colors';
 
 export default function GroupVoting() {
     const { group, setGroup } = React.useContext(GroupContext);
+
 
     return (
         <>
@@ -54,7 +56,7 @@ export default function GroupVoting() {
                                     align="right"
                                     key={currentPlayer.playerId}
                                 >
-                                    <Switch />
+                                    <Switch/>
                                 </TableCell>
                             </TableRow>
                         ))}
