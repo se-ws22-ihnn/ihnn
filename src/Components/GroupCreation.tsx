@@ -79,7 +79,7 @@ export function ListGroupMember() {
     };
     return (
         <>
-            <Box>
+            <Block>
                 <h2>Aktuelle Spieler</h2>
                 <TableContainer component={Paper}>
                     <Table
@@ -135,7 +135,7 @@ export function ListGroupMember() {
                         </TableBody>
                     </Table>
                 </TableContainer>
-            </Box>
+            </Block>
         </>
     );
 }
