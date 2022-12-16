@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import { Avatar, Radio, Switch } from '@mui/material';
+import { styled } from '@mui/material/styles';
 // Table Imports
 import {
     Table,
@@ -14,19 +15,30 @@ import {
 import { GroupContext } from '../Context/GroupContext';
 import { green, red } from '@mui/material/colors';
 
+const Block = styled(Paper)(({ theme }) => ({
+    backgroundColor:
+        theme.palette.mode === 'dark'
+            ? 'rgba(27, 33, 40, 0.8)'
+            : 'rgba(145, 115, 94, 1)',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.primary,
+}));
+
 export default function GroupVoting() {
     const { group, setGroup } = React.useContext(GroupContext);
 
 
     return (
         <>
-            {/* <Block> */}
+        <Block>
             <h2>Votings der Gruppenmitglieder </h2>
-            <TableContainer component={Paper}>
+            <TableContainer 
+            component={Paper}>
                 <Table
                     sx={{
-                        minWidth: 250,
-                        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                        minWidth: 250 
                     }}
                 >
                     <TableHead></TableHead>
@@ -63,7 +75,7 @@ export default function GroupVoting() {
                     </TableBody>
                 </Table>
             </TableContainer>
-            {/* </Block> */}
+        </Block>
         </>
     );
 }
