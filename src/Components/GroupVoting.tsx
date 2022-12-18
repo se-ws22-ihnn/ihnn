@@ -13,9 +13,15 @@ import {
 // icon imports
 import { GroupContext } from '../Context/GroupContext';
 import { green, red } from '@mui/material/colors';
+import { useState } from 'react';
 
 export default function GroupVoting() {
     const { group, setGroup } = React.useContext(GroupContext);
+    const [checked, setChecked] = useState(false);
+
+  const switchHandler = (event:any) => {
+    setChecked(event.target.checked);
+  };
 
 
     return (
@@ -56,7 +62,7 @@ export default function GroupVoting() {
                                     align="right"
                                     key={currentPlayer.playerId}
                                 >
-                                    <Switch/>
+                                    <Switch checked={checked} onChange={switchHandler} />
                                 </TableCell>
                             </TableRow>
                         ))}
