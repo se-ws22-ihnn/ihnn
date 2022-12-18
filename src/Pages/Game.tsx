@@ -2,10 +2,8 @@ import * as React from 'react';
 import Box from '@mui/system/Box';
 import Grid from '@mui/system/Unstable_Grid';
 import styled from '@mui/system/styled';
-import ShowQuestion from '../Components/ShowQuestion';
 import GroupVoting from '../Components/GroupVoting';
 import { Button } from '@mui/material';
-import FinalScoreCard from '../Components/FinalScoreCard';
 import { GroupContext } from '../Context/GroupContext';
 import { QuestionListContext } from '../Context/QuestionsListContext';
 import Paper from '@mui/material/Paper';
@@ -20,6 +18,9 @@ import {
     TableRow,
 } from '@mui/material';
 import { useState } from 'react';
+import FinalScoreCard from '../Components/FinalScoreCard';
+import ShowQuestion from '../Components/ShowQuestion';
+import HandlePlayerVoting from '../Components/HandlePlayerVoting';
 
 // icon imports
 
@@ -116,11 +117,7 @@ export default function Game() {
                                                 align="right"
                                                 key={currentPlayer.playerId}
                                             >
-                                                <Switch
-                                                    key={currentPlayer.playerId}
-                                                    checked={checked}
-                                                    onChange={() => {}}
-                                                />
+                                                <HandlePlayerVoting playerId={currentPlayer.playerId} name={''} shortname={''} color={''} iDidCounter={0} iDidNotCounter={0}/>
                                             </TableCell>
                                         </TableRow>
                                     ))}
