@@ -49,7 +49,10 @@ export default function AboutIhnnDialog() {
                 />
                 
 
-                <Typography align="justify" sx={{ ml: 3, mr: 3, mt: 1, mb: 1 }}>
+                <Typography 
+                align="justify" sx={{ ml: 3, mr: 3, mt: 1, mb: 1 }}
+                color="inherit"
+                >
                     IHNN steht für "Ich habe noch nie" und basiert auf dem
                     belieben Trinkspiel mit identischen namen. In diesem Spiel
                     wird der Gruppe bezüglich einer beliebigen Aktivität eine
@@ -66,6 +69,7 @@ export default function AboutIhnnDialog() {
                 <DialogActions sx={{ mr: 2 }}>
                     <Button
                         variant="outlined"
+                        color="inherit"
                         onClick={() =>
                             window.open(
                                 'https://github.com/se-ws22-ihnn/ihnn',
@@ -75,7 +79,10 @@ export default function AboutIhnnDialog() {
                     >
                         zum GitHub Repo
                     </Button>
-                    <Button variant="outlined" onClick={handleClose}>
+                    <Button 
+                    variant="outlined" onClick={handleClose}
+                    color="inherit"
+                    >
                         verstanden
                     </Button>
                 </DialogActions>

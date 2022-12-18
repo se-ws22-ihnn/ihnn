@@ -2,7 +2,20 @@ import * as React from 'react';
 import { Typography } from '@mui/material';
 import { QuestionListContext } from '../Context/QuestionsListContext';
 import { GroupContext } from '../Context/GroupContext';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
 
+
+const Block = styled(Paper)(({ theme }) => ({
+    backgroundColor:
+        theme.palette.mode === 'dark'
+            ? 'rgba(27, 33, 40, 0.8)'
+            : 'rgba(145, 115, 94, 1)',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.primary,
+}));
 
 export default function ShowQuestion() {
     const { questionList } = React.useContext(QuestionListContext);
@@ -10,8 +23,11 @@ export default function ShowQuestion() {
 
     return (
         <>
+        <Block>
             <h2>Ich habe noch nie ...</h2>
-            <Typography>
+            <Typography
+            color="inherit" //Farbe des Testfragen Textes
+            >
                 {questionList[roundCounter - 1].questionText}
             </Typography>
 
@@ -20,6 +36,8 @@ export default function ShowQuestion() {
                 <Typography>{currentQuestion.questionText}</Typography>
             ))} */}
 
+
+        </Block>
         </>
     );
 }

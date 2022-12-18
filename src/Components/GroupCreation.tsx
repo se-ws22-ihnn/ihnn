@@ -50,7 +50,7 @@ const Block = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'left',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.primary,
 }));
 
 /* welche daten gehören zu einem Member? */
@@ -84,8 +84,7 @@ export function ListGroupMember() {
                 <TableContainer component={Paper}>
                     <Table
                         sx={{
-                            minWidth: 250,
-                            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                            minWidth: 250
                         }}
                         aria-label="Spielerliste"
                     >
