@@ -13,10 +13,12 @@ export default function HandlePlayerVoting(currentPlayerVoteing: Player) {
     const handleIdidVote = () => {
         currentPlayerVoteing.iDidCounter + 1
         setIsClicked(true)
+        console.log(currentPlayerVoteing.iDidCounter)
     }
     const handleIdidNotVote = () => {
         currentPlayerVoteing.iDidNotCounter + 1
         setIsClicked(true)
+        console.log(currentPlayerVoteing.iDidNotCounter)
     }
     
     
