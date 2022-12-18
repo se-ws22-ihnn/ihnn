@@ -23,7 +23,6 @@ import { useState } from 'react';
 
 // icon imports
 
-
 const Item = styled('div')(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#1A2027',
     border: '0px solid',
@@ -34,20 +33,20 @@ const Item = styled('div')(({ theme }) => ({
 }));
 
 export default function Game() {
-    const { group, roundCounter, setRoundCounter } = React.useContext(GroupContext);
+    const { group, roundCounter, setRoundCounter } =
+        React.useContext(GroupContext);
     const { questionList } = React.useContext(QuestionListContext);
     const [checked, setChecked] = useState(false);
 
-    const switchHandler = (event:any) => {
-      setChecked(event.target.checked);
-      
+    const switchHandler = (event: any) => {
+        setChecked(event.target.checked);
     };
     const handleNewRound = () => {
         // 1. wenn gruppe angegeben hat wie viele runden gespielt werden sollen muss das hier per if berücksichtigt werden
         // 2. votings der runde muss in jedem spieler berücksichtig und übergeben werden werde (i did oder i didnt +1)
         // 3. zurücksetzten der voting slider
 
-        // 4. neu Frage anzeigen 
+        // 4. neu Frage anzeigen
 
         // BUG: wenn liste leer bzw durch, wird nichts mehr gerendert
         // ===> Liste könnte jedes mal random befüllt werden und roundcounter wäre dann gleichzeitig der index mit dem man eine neue frage abruft
@@ -80,52 +79,55 @@ export default function Game() {
                 </Grid>
                 <Grid xs={6}>
                     <Item>
-                    <>
-            {/* <Block> */}
-            <h2>Votings der Gruppenmitglieder </h2>
-            <TableContainer component={Paper}>
-                <Table
-                    sx={{
-                        minWidth: 250,
-                        backgroundColor: 'rgba(255, 255, 255, 0.5)',
-                    }}
-                >
-                    <TableHead></TableHead>
-                    <TableBody>
-                        {/* Table bauen pro Gruppenmitglied */}
-                        {group.map((currentPlayer) => (
-                            <TableRow key={currentPlayer.playerId}>
-                                <TableCell
-                                    align="left"
-                                    key={currentPlayer.playerId}
-                                >
-                                    <Avatar
-                                        sx={{
-                                            bgcolor: currentPlayer.color,
-                                        }}
-                                    >
-                                        {currentPlayer.shortname}
-                                    </Avatar>
-                                </TableCell>
-                                <TableCell
-                                    align="left"
-                                    key={currentPlayer.playerId}
-                                >
-                                    {currentPlayer.name}
-                                </TableCell>
-                                <TableCell
-                                    align="right"
-                                    key={currentPlayer.playerId}
-                                >
-                                    <Switch key={currentPlayer.playerId} checked={checked} onChange={() => {checked? currentPlayer.iDidCounter + 1: currentPlayer.iDidNotCounter +1, console.log(currentPlayer,"iDidCounter",currentPlayer.iDidCounter, "iDidNotCounter",currentPlayer.iDidNotCounter)}} />
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            {/* </Block> */}
-        </>
+                        {/* <Block> */}
+                        <h2>Votings der Gruppenmitglieder </h2>
+                        <TableContainer component={Paper}>
+                            <Table
+                                sx={{
+                                    minWidth: 250,
+                                    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                                }}
+                            >
+                                <TableHead></TableHead>
+                                <TableBody>
+                                    {/* Table bauen pro Gruppenmitglied */}
+                                    {group.map((currentPlayer) => (
+                                        <TableRow key={currentPlayer.playerId}>
+                                            <TableCell
+                                                align="left"
+                                                key={currentPlayer.playerId}
+                                            >
+                                                <Avatar
+                                                    sx={{
+                                                        bgcolor:
+                                                            currentPlayer.color,
+                                                    }}
+                                                >
+                                                    {currentPlayer.shortname}
+                                                </Avatar>
+                                            </TableCell>
+                                            <TableCell
+                                                align="left"
+                                                key={currentPlayer.playerId}
+                                            >
+                                                {currentPlayer.name}
+                                            </TableCell>
+                                            <TableCell
+                                                align="right"
+                                                key={currentPlayer.playerId}
+                                            >
+                                                <Switch
+                                                    key={currentPlayer.playerId}
+                                                    checked={checked}
+                                                    onChange={() => {}}
+                                                />
+                                            </TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                        {/* </Block> */}
                     </Item>
                 </Grid>
 
