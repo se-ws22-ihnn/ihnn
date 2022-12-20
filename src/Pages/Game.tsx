@@ -37,6 +37,7 @@ export default function Game() {
     const { group, roundCounter, setRoundCounter } =
         React.useContext(GroupContext);
     const { questionList } = React.useContext(QuestionListContext);
+    const [players, setPlayers] = useState([]);
     const [checked, setChecked] = useState(false);
 
     const switchHandler = (event: any) => {
@@ -117,7 +118,7 @@ export default function Game() {
                                                 align="right"
                                                 key={currentPlayer.playerId}
                                             >
-                                                <HandlePlayerVoting playerId={currentPlayer.playerId} name={''} shortname={''} color={''} iDidCounter={0} iDidNotCounter={0}/>
+                                                <HandlePlayerVoting currentPlayer={currentPlayer} />
                                             </TableCell>
                                         </TableRow>
                                     ))}
