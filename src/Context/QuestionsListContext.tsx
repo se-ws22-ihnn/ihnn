@@ -1,5 +1,5 @@
-import { createContext, useState } from 'react';
-import { Question } from '../types/questionType';
+import {createContext, useState} from 'react';
+import {Question} from '../types/questionType';
 
 // ===> Context to make the Grouplist from the useState public
 type ContextProps = {
@@ -19,7 +19,7 @@ export const QuestionListContext = createContext<ContextProps>(initValues);
 type ProviderProps = {
     children?: React.ReactNode;
 };
-export const QuestionListContextProvider = (props: ProviderProps) => {
+export const QuestionListContextProvider = ({children}: ProviderProps) => {
 
     // Liste soll bereits test bzw default fragen als inital wert bekommmen!
     const initalQuestionList = [
@@ -44,7 +44,6 @@ export const QuestionListContextProvider = (props: ProviderProps) => {
     const [questionList, setQuestionList] = useState<Question[]>(initalQuestionList);
 
 
-
     return (
         <QuestionListContext.Provider
             value={{
@@ -52,7 +51,7 @@ export const QuestionListContextProvider = (props: ProviderProps) => {
                 setQuestionList: setQuestionList,
             }}
         >
-            {props.children}
+            {children}
         </QuestionListContext.Provider>
     );
 };
