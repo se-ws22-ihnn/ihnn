@@ -1,15 +1,14 @@
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import {IconButton} from '@mui/material';
-import {Player, Player1} from '../types/playerType';
+import {Player} from '../types/playerType';
 import {useEffect, useState} from 'react';
 
-import Game from '../Pages/Game';
+
 
 
 type handlePlayerInterface = {
-    currentPlayer: Player1
-    ;
+    currentPlayer: Player;
 }
 export default function HandlePlayerVoting(props: handlePlayerInterface) {
     const [isClicked, setIsClicked] = useState(false);
@@ -21,7 +20,7 @@ export default function HandlePlayerVoting(props: handlePlayerInterface) {
         console.log(props.currentPlayer.iDidCounter)
     }
     const handleIdidNotVote = () => {
-        props.currentPlayer.increase()
+        props.currentPlayer.iDidNotCounter++;
         setIsClicked(true)
         console.log(props.currentPlayer.iDidNotCounter)
     }

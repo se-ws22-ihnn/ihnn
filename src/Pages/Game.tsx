@@ -6,23 +6,9 @@ import GroupVoting from '../Components/GroupVoting';
 import { Button } from '@mui/material';
 import { GroupContext } from '../Context/GroupContext';
 import { QuestionListContext } from '../Context/QuestionsListContext';
-import Paper from '@mui/material/Paper';
-import { Avatar, Switch } from '@mui/material';
-// Table Imports
-import {
-    Table,
-    TableHead,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableRow,
-} from '@mui/material';
-import { useState } from 'react';
 import FinalScoreCard from '../Components/FinalScoreCard';
 import ShowQuestion from '../Components/ShowQuestion';
-import HandlePlayerVoting from '../Components/HandlePlayerVoting';
 
-// icon imports
 
 const Item = styled('div')(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#1A2027',
@@ -34,40 +20,19 @@ const Item = styled('div')(({ theme }) => ({
 }));
 
 export default function Game() {
-    const { group, roundCounter, setRoundCounter } =
+    const { roundCounter, setRoundCounter } =
         React.useContext(GroupContext);
     const { questionList } = React.useContext(QuestionListContext);
-    const [players, setPlayers] = useState([]);
-    const [checked, setChecked] = useState(false);
 
-    const switchHandler = (event: any) => {
-        setChecked(event.target.checked);
-    };
     const handleNewRound = () => {
-        // 1. wenn gruppe angegeben hat wie viele runden gespielt werden sollen muss das hier per if berücksichtigt werden
-        // 2. votings der runde muss in jedem spieler berücksichtig und übergeben werden werde (i did oder i didnt +1)
-        // 3. zurücksetzten der voting slider
-
-        // 4. neu Frage anzeigen
-
-        // BUG: wenn liste leer bzw durch, wird nichts mehr gerendert
-        // ===> Liste könnte jedes mal random befüllt werden und roundcounter wäre dann gleichzeitig der index mit dem man eine neue frage abruft
-        // ===> wenn ende der liste erreich, dann meldung und einfach wieder von vorne? oder spiel beenden?
-        if (roundCounter === questionList.length) {
-            console.log(
-                'roundCounter',
-                roundCounter,
-                ' => ',
-                'questionListL',
-                questionList.length,
-            );
-            /* return <h3>Ihr habt alle Fragen beantwortet</h3>; */
-            return <FinalScoreCard />;
-            // BUG: Funkt nicht Wenn roundcounter == Fragenlistenlänge beende spiel
-        } else {
-            // 5. Roundcounter erhöhen
-            setRoundCounter(roundCounter + 1);
-        }
+        // der Roundcounter übernimmt hier einige wichtige Dinge
+        // 1. als Zähler in welcher Runde wir uns befinden
+        // 2. als Index für die Liste der Fragen um eine neue Frage zu geben bei jeder neuen Runde
+        // 3. als Key für die Groupvoting Komponente (wenn der key sich verändert wird die Komponente auf den Ursprung neu gerendert)
+        // => dies ermöglich, dass jedes mal wenn eine neue Runde/Frage kommt, das voting neu ermöglicht wird!
+        // 4. wenn der Roundcounter === der Listenlänge ist kann keine weitere Frage erfolgen, da der Button deaktiviert wird
+        // => Spiel muss beendet werden
+        setRoundCounter(roundCounter + 1);
     };
 
     return (
@@ -81,55 +46,11 @@ export default function Game() {
                 </Grid>
                 <Grid xs={6}>
                     <Item>
-                        {/* <Block> */}
-                        <h2>Votings der Gruppenmitglieder </h2>
-                        <TableContainer component={Paper}>
-                            <Table
-                                sx={{
-                                    minWidth: 250,
-                                    backgroundColor: 'rgba(255, 255, 255, 0.5)',
-                                }}
-                            >
-                                <TableHead></TableHead>
-                                <TableBody>
-                                    {/* Table bauen pro Gruppenmitglied */}
-                                    {group.map((currentPlayer) => (
-                                        <TableRow key={currentPlayer.playerId}>
-                                            <TableCell
-                                                align="left"
-                                                key={currentPlayer.playerId}
-                                            >
-                                                <Avatar
-                                                    sx={{
-                                                        bgcolor:
-                                                            currentPlayer.color,
-                                                    }}
-                                                >
-                                                    {currentPlayer.shortname}
-                                                </Avatar>
-                                            </TableCell>
-                                            <TableCell
-                                                align="left"
-                                                key={currentPlayer.playerId}
-                                            >
-                                                {currentPlayer.name}
-                                            </TableCell>
-                                            <TableCell
-                                                align="right"
-                                                key={currentPlayer.playerId}
-                                            >
-                                                <HandlePlayerVoting currentPlayer={currentPlayer} />
-                                            </TableCell>
-                                        </TableRow>
-                                    ))}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                        {/* </Block> */}
+                        <GroupVoting key={roundCounter}/> 
                     </Item>
                 </Grid>
 
-                <Button variant="contained" onClick={handleNewRound}>
+                <Button variant="contained" onClick={handleNewRound} disabled={roundCounter === questionList.length}>
                     Nächste Frage
                 </Button>
 

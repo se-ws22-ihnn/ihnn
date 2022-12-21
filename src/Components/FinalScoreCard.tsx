@@ -93,7 +93,7 @@ export default function FinalScoreCard() {
                                             key={currentPlayer.playerId}
                                         >
                                             <CancelIcon />
-                                            {currentPlayer.iDidCounter}
+                                            {currentPlayer.iDidNotCounter}
                                         </TableCell>
                                     </TableRow>
                                 ))}
