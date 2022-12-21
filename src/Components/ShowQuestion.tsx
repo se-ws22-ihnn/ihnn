@@ -5,7 +5,6 @@ import { GroupContext } from '../Context/GroupContext';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
-
 const Block = styled(Paper)(({ theme }) => ({
     backgroundColor:
         theme.palette.mode === 'dark'
@@ -35,7 +34,6 @@ export default function ShowQuestion() {
             {/* {questionList.map((currentQuestion, roundCounter) => (
                 <Typography>{currentQuestion.questionText}</Typography>
             ))} */}
-
 
         </Block>
         </>
