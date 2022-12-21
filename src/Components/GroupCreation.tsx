@@ -1,15 +1,11 @@
 import * as React from 'react';
-import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 import {
     Avatar,
     Box,
     Button,
-    FormControl,
     IconButton,
-    InputLabel,
     MenuItem,
     TextField,
 } from '@mui/material';
@@ -198,7 +194,7 @@ export function AddGroupMember() {
                     <TextField
                         required
                         label="Spielername"
-                        sx={{ marginBottom: 1 }}
+                        sx={{ marginBottom: 1, mr:2 }}
                         /* value={playername} */
                         /* onChange={(event) => setPlayername(event.target.value)} */
                         onChange={formik.handleChange}

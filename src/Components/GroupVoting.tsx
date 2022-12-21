@@ -32,7 +32,7 @@ const Block = styled(Paper)(({ theme }) => ({
 }));
 
 export default function GroupVoting() {
-    const { group, setGroup } = React.useContext(GroupContext);
+    const { group } = React.useContext(GroupContext);
 
     return (
         <>

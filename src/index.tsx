@@ -2,11 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import ResponsiveAppBar from './Components/Header';
-import ButtonAppBar from './Components/Header';
-import Mainpage from './Pages/Mainpage';
-import { GroupContextProvider } from './Context/GroupContext';
-import { QuestionListContextProvider } from './Context/QuestionsListContext';
 import App from './app';
 
 const root = ReactDOM.createRoot(

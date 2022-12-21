@@ -6,7 +6,6 @@ import GroupVoting from '../Components/GroupVoting';
 import { Button } from '@mui/material';
 import { GroupContext } from '../Context/GroupContext';
 import { QuestionListContext } from '../Context/QuestionsListContext';
-import FinalScoreCard from '../Components/FinalScoreCard';
 import ShowQuestion from '../Components/ShowQuestion';
 
 
@@ -54,8 +53,6 @@ export default function Game() {
                     Nächste Frage
                 </Button>
 
-                {/* Beenden und Auswertung erhalten */}
-                <FinalScoreCard />
             </Grid>
         </Box>
     );

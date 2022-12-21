@@ -33,12 +33,12 @@ export default function PrepareGame() {
 					</Grid> */}
 
                     <Grid item xs={6}>
-                        <ListGroupMember />
+                        <AddGroupMember />
                     </Grid>
                     <Grid item xs={6}>
-                        <AddGroupMember />
+                        <ListGroupMember />
                         <Box sx={{ mt: 2 }}>
-                            <Button
+                            {/* <Button
                                 variant="contained"
                                 sx={{
                                     backgroundColor: 'rgba(81, 60, 41, 1)',
@@ -54,7 +54,7 @@ export default function PrepareGame() {
                                 }}
                             >
                                 Spiel starten
-                            </Button>
+                            </Button> */}
                         </Box>
                     </Grid>
                 </Grid>
