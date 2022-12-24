@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@mui/material';
+import { ThemeProvider, Typography } from '@mui/material';
 import './index.css';
 import ButtonAppBar from './Components/Header';
 import { GroupContextProvider } from './Context/GroupContext';
@@ -8,12 +8,17 @@ import GameStateMachine from './Pages/GameStateMachine';
 
 /* adding a global visible background image to the page */
 /* load it with  <div style={background.image}> */
+
+let w = window.innerWidth;
+let h = window.innerHeight;
 const background = {
     image: {
+        minHeight: '100vh',
         backgroundColor: '#BFB59E',
-        height: '100vh',
+        backgroundSize: w + 'px ' + h + 'px',
     },
 };
+
 
 export default function App() {
     return (
@@ -21,10 +26,13 @@ export default function App() {
             {/* Hier unsere Components */}
             <QuestionListContextProvider>
                 <GroupContextProvider>
-                    <div style={background.image}>
+                    <div 
+                        style={background.image} >
+                            
                         <ButtonAppBar />
                         <GameStateMachine />
                     </div>
+                    
                 </GroupContextProvider>
             </QuestionListContextProvider>
         </ThemeProvider>

@@ -15,8 +15,8 @@ export default function ButtonAppBar() {
 			<AppBar 
 			position="static"
 			>
-				<Toolbar
-				sx ={{backgroundColor:'rgba(81, 60, 41, 1)'}}
+				<Toolbar color= "inherit"
+				
 				>
 					{/* Logo IHNN Section */}
 
