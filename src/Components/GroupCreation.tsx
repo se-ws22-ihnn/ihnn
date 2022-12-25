@@ -148,7 +148,7 @@ export function AddGroupMember() {
             playerId: 0,
             name: '',
             shortname: '',
-            color: '',
+            color: '#ff9800',
             iDidCounter: 0,
             iDidNotCounter: 0,
         },
