@@ -19,23 +19,23 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function PrepareGame() {
     return (
         <>
-            <Box sx={{ flexGrow: 1, m: 2 }}>
+            <Box sx={{ flexGrow: 0, m: 2 }}>
                 <Grid container spacing={2}>
                     {/* for later use: grid layout with three boxes https://mui.com/material-ui/react-grid/
-					<Grid item xs={4}>
+					<Grid item xs={12} sm={4}>
 						<Settings />
 					</Grid>
-					<Grid item xs={4}>
+					<Grid item xs={12} sm={4}>
 						<ListGroupMember />
 					</Grid>
-					<Grid item xs={4}>
+					<Grid item xs={12} sm={4}>
 						<AddGroupMember />
 					</Grid> */}
 
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={6}>
                         <AddGroupMember />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={6}>
                         <ListGroupMember />
                         <Box sx={{ mt: 2 }}>
                             {/* <Button

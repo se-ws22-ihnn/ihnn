@@ -35,15 +35,15 @@ export default function Game() {
     };
 
     return (
-        <Box sx={{ flexGrow: 1, m: 2 }}>
+        <Box sx={{ flexGrow: 0, m: 2 }}>
             <h1>Runde: {roundCounter}</h1>
             <Grid container spacing={2}>
-                <Grid xs={6}>
+                <Grid xs={12} sm={6}>
                     <Item sx={{ textAlign: 'left' }}>
                         <ShowQuestion />
                     </Item>
                 </Grid>
-                <Grid xs={6}>
+                <Grid xs={12} sm={6}>
                     <Item>
                         <GroupVoting key={roundCounter}/> 
                     </Item>

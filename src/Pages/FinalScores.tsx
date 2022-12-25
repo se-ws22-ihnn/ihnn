@@ -20,13 +20,13 @@ export default function FinalScoreCard() {
     const { group, roundCounter } = React.useContext(GroupContext);
     return (
         <>
-            <Box sx={{ flexGrow: 1, m: 2 }}>
-                <h2>IHNN: Gruppenauswertung</h2>
+            <Box sx={{ flexGrow: 0, m: 2 }}>
+                <h2>Auswertung</h2>
                 <Divider />
                 <h3>Runden gespielt: {roundCounter}</h3>
 
-                <Grid container spacing={2}>
-                    <Grid xs={6}>
+                <Grid container spacing={2}>  
+                    <Grid xs={12} sm={6}>
                         <TableContainer component={Paper}>
                             <Table
                                 sx={{
@@ -78,7 +78,7 @@ export default function FinalScoreCard() {
                             </Table>
                         </TableContainer>
                     </Grid>
-                    <Grid xs={6}>Hier könnte ein Chart sein @Sören </Grid>
+                    <Grid xs={12} sm={6}>Hier könnte ein Chart sein @Sören</Grid>
                 </Grid>
             </Box>
         </>
