@@ -48,7 +48,7 @@ export default function CreateQuestionByDialog() {
 				onClick={handleClickOpen}
 				startIcon={<QuizIcon />}
 			>
-				Add Question
+				Frage einreichen
 			</Button>
 
 			<Dialog open={open} onClose={handleClose}>
