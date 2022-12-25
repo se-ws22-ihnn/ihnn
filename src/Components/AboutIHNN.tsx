@@ -39,7 +39,7 @@ export default function AboutIhnnDialog() {
                             maxWidth: { xs: 350, md: 250 },
                         }} */
                     alt="IHNN Cover"
-                    src="images/ihnn-cover.avif"
+                    src="images/ihnn-cover.png"
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
