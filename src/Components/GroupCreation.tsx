@@ -159,6 +159,7 @@ export function AddGroupMember() {
         validationSchema: Yup.object({
             name: Yup.string()
                 .required('Required')
+                .matches(/.*\S.*/, 'Keine Leerzeichen')
                 .max(20, 'max. 20 Buchstaben erlaubt')
                 .min(3, 'min. 3 Buchstaben nötig'),
         }),
