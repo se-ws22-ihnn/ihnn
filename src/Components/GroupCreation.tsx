@@ -169,20 +169,13 @@ export function AddGroupMember() {
         const newPlayer: Player = {
             playerId: group.length + 1,
             name: name,
-            shortname:
-                name.split(
-                    ' ',
-                )[0][0] /* + if(playername.includes(" ")) { playername.split(' ')[1][0] } */,
+            shortname: name.toUpperCase().split(' ')[0][0],
             color: color,
             iDidCounter: 0,
             iDidNotCounter: 0,
         };
-        /* console.log('name: ' + newPlayer.name);
-        console.log('sname: ' + newPlayer.shortname);
-        console.log('color: ' + newPlayer.color); */
 
         setGroup([...group, newPlayer]);
-        // possible "BUG": Wenn zB ein dritter Spieler hinzugefügt wird, zeigt die Ausgabe erstmal nur zwei an. Beim vierten, werden dann drei angezeigt usw
     };
 
     return (
