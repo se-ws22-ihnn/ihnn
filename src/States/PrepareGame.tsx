@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { AddGroupMember, ListGroupMember } from '../Components/GroupCreation';
 
-
 export default function PrepareGame() {
     return (
         <Box sx={{ flexGrow: 0, m: 2 }}>

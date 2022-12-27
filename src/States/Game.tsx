@@ -8,15 +8,6 @@ import { GroupContext } from '../Context/GroupContext';
 import { QuestionListContext } from '../Context/QuestionsListContext';
 import ShowQuestion from '../Components/ShowQuestion';
 
-const Item = styled('div')(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#1A2027',
-    border: '0px solid',
-    borderColor: theme.palette.mode === 'dark' ? '#444d58' : '#444d58',
-    padding: theme.spacing(0),
-    borderRadius: '18px',
-    textAlign: 'center',
-}));
-
 export default function Game() {
     const { roundCounter, setRoundCounter } = React.useContext(GroupContext);
     const { questionList } = React.useContext(QuestionListContext);

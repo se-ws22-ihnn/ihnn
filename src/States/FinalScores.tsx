@@ -2,9 +2,7 @@ import Box from '@mui/system/Box';
 import Grid from '@mui/system/Unstable_Grid';
 import * as React from 'react';
 
-
 import GroupScore, { GroupScoreChart } from '../Components/GroupScore';
-
 
 export default function FinalScoreCard() {
     return (

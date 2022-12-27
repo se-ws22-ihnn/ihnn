@@ -8,7 +8,6 @@ import Game from './Game';
 import PrepareGame from './PrepareGame';
 
 export default function GameStateMachine() {
-
     const { group } = React.useContext(GroupContext);
 
     const [state, setState] = useState(0);
@@ -20,19 +19,22 @@ export default function GameStateMachine() {
     */
 
     const increaseState = () => {
-        if(state >= 2 ) {
-            setState(0)
+        if (state >= 2) {
+            setState(0);
             // um wieder auf dem ersten State zu landen ginge auch mit modulo%
-        }
-        else setState(state + 1);
-
+        } else setState(state + 1);
     };
     return (
         <>
             {state == 0 && (
                 <>
                     <PrepareGame />
-                    <Button onClick={increaseState} variant="contained" disabled={group.length < 2} sx={{m: 2 }}>
+                    <Button
+                        onClick={increaseState}
+                        variant="contained"
+                        disabled={group.length < 2}
+                        sx={{ m: 2 }}
+                    >
                         State 1: Spiel starten
                     </Button>
                 </>
@@ -40,7 +42,11 @@ export default function GameStateMachine() {
             {state == 1 && (
                 <>
                     <Game />
-                    <Button onClick={increaseState} variant="contained" sx={{m: 2}}>
+                    <Button
+                        onClick={increaseState}
+                        variant="contained"
+                        sx={{ m: 2 }}
+                    >
                         State 2: Spiel beenden
                     </Button>
                 </>
@@ -48,11 +54,14 @@ export default function GameStateMachine() {
             {state == 2 && (
                 <>
                     <FinalScores />
-                    <Button onClick={increaseState} variant="contained" sx={{m: 2 }}>
+                    <Button
+                        onClick={increaseState}
+                        variant="contained"
+                        sx={{ m: 2 }}
+                    >
                         State 3: zur Startseite
                     </Button>
                 </>
-
             )}
         </>
     );
