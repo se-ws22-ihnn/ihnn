@@ -8,7 +8,6 @@ import { GroupContext } from '../Context/GroupContext';
 import { QuestionListContext } from '../Context/QuestionsListContext';
 import ShowQuestion from '../Components/ShowQuestion';
 
-
 const Item = styled('div')(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#1A2027',
     border: '0px solid',
@@ -19,8 +18,7 @@ const Item = styled('div')(({ theme }) => ({
 }));
 
 export default function Game() {
-    const { roundCounter, setRoundCounter } =
-        React.useContext(GroupContext);
+    const { roundCounter, setRoundCounter } = React.useContext(GroupContext);
     const { questionList } = React.useContext(QuestionListContext);
 
     const handleNewRound = () => {
@@ -39,20 +37,19 @@ export default function Game() {
             <h1>Runde: {roundCounter}</h1>
             <Grid container spacing={2}>
                 <Grid xs={12} sm={6}>
-                    <Item sx={{ textAlign: 'left' }}>
-                        <ShowQuestion />
-                    </Item>
+                    <ShowQuestion />
                 </Grid>
                 <Grid xs={12} sm={6}>
-                    <Item>
-                        <GroupVoting key={roundCounter}/> 
-                    </Item>
+                    <GroupVoting key={roundCounter} />
                 </Grid>
 
-                <Button variant="contained" onClick={handleNewRound} disabled={roundCounter === questionList.length}>
+                <Button
+                    variant="contained"
+                    onClick={handleNewRound}
+                    disabled={roundCounter === questionList.length}
+                >
                     Nächste Frage
                 </Button>
-
             </Grid>
         </Box>
     );

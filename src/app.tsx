@@ -4,7 +4,7 @@ import ButtonAppBar from './Components/Header';
 import { GroupContextProvider } from './Context/GroupContext';
 import { QuestionListContextProvider } from './Context/QuestionsListContext';
 import lightTheme from './Themes/light';
-import GameStateMachine from './Pages/GameStateMachine';
+import GameStateMachine from './States/GameStateMachine';
 
 /* adding a global visible background image to the page */
 /* load it with  <div style={background.image}> */

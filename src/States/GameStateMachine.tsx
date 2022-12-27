@@ -22,7 +22,7 @@ export default function GameStateMachine() {
     const increaseState = () => {
         if(state >= 2 ) {
             setState(0)
-            // um wieder auf dem ersten State zu landen
+            // um wieder auf dem ersten State zu landen ginge auch mit modulo%
         }
         else setState(state + 1);
 
