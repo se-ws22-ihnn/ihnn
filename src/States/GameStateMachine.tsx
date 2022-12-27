@@ -32,7 +32,7 @@ export default function GameStateMachine() {
             {state == 0 && (
                 <>
                     <PrepareGame />
-                    <Button onClick={increaseState} variant="contained" disabled={group.length < 2}>
+                    <Button onClick={increaseState} variant="contained" disabled={group.length < 2} sx={{m: 2 }}>
                         State 1: Spiel starten
                     </Button>
                 </>
@@ -40,7 +40,7 @@ export default function GameStateMachine() {
             {state == 1 && (
                 <>
                     <Game />
-                    <Button onClick={increaseState} variant="contained">
+                    <Button onClick={increaseState} variant="contained" sx={{m: 2}}>
                         State 2: Spiel beenden
                     </Button>
                 </>
@@ -48,7 +48,7 @@ export default function GameStateMachine() {
             {state == 2 && (
                 <>
                     <FinalScores />
-                    <Button onClick={increaseState} variant="contained">
+                    <Button onClick={increaseState} variant="contained" sx={{m: 2 }}>
                         State 3: zur Startseite
                     </Button>
                 </>
