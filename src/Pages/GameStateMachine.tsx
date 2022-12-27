@@ -1,10 +1,16 @@
 import { Button } from '@mui/material';
+import { group } from 'console';
+import React from 'react';
 import { useState } from 'react';
+import { GroupContext } from '../Context/GroupContext';
 import FinalScores from './FinalScores';
 import Game from './Game';
 import PrepareGame from './PrepareGame';
 
 export default function GameStateMachine() {
+
+    const { group } = React.useContext(GroupContext);
+
     const [state, setState] = useState(0);
     /*  States beschreibung:
     0 = Startpage: Gruppenerstellung  
@@ -26,7 +32,7 @@ export default function GameStateMachine() {
             {state == 0 && (
                 <>
                     <PrepareGame />
-                    <Button onClick={increaseState} variant="contained">
+                    <Button onClick={increaseState} variant="contained" disabled={group.length < 2}>
                         State 1: Spiel starten
                     </Button>
                 </>
