@@ -16,6 +16,17 @@ import { GroupContext } from '../Context/GroupContext';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import HandlePlayerVoting from './HandlePlayerVoting';
+import { PieChart } from 'react-minimal-pie-chart';
+
+const voteData = [
+    { title: 'Yes', value: 10, color: '#3a883d' },
+    { title: 'No', value: 15, color: '#dd3a2e' },
+];
+
+const defaultLabelStyle = {
+    fontSize: '5px',
+    fontFamily: 'sans-serif',
+};
 
 /* !!!!! aktuell keine Verwendung weil diese Componente in die Game Komponente ausgelagert wurde !!!!
    Dies kann sich aber auch wieder ändern je nach dem wie ich eine Lösung finde (Jannik) */
@@ -37,8 +48,7 @@ export default function GroupScore() {
     return (
         <>
             <Block>
-                
-                <h3>Runden gespielt: {roundCounter}</h3>
+                <h2>Runden gespielt: {roundCounter}</h2>
                 <TableContainer component={Paper}>
                     <Table
                         sx={{
@@ -73,14 +83,14 @@ export default function GroupScore() {
                                         align="right"
                                         key={currentPlayer.playerId}
                                     >
-                                        <CheckCircleIcon />
+                                        <CheckCircleIcon color="success" />
                                         {currentPlayer.iDidCounter}
                                     </TableCell>
                                     <TableCell
                                         align="right"
                                         key={currentPlayer.playerId}
                                     >
-                                        <CancelIcon />
+                                        <CancelIcon color="error" />
                                         {currentPlayer.iDidNotCounter}
                                     </TableCell>
                                 </TableRow>
@@ -99,7 +109,23 @@ export function GroupScoreChart() {
     return (
         <>
             <Block>
-                <Typography>Hier das Chart</Typography>
+                <h2>Verteilung aller Stimmen</h2>
+                <PieChart
+                    data={voteData}
+                    lineWidth={20}
+                    paddingAngle={18}
+                    radius={50}
+                    style={{ height: '500px' }}
+                    rounded
+                    label={({ dataEntry }) => dataEntry.value}
+                    /* JSX props should not use arrow functions ? */
+                    labelStyle={(index) => ({
+                        fill: voteData[index].color,
+                        fontSize: '8px',
+                        fontFamily: 'sans-serif',
+                    })}
+                    labelPosition={60}
+                />
             </Block>
         </>
     );
