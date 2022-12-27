@@ -44,6 +44,7 @@ export default function Game() {
                 </Grid>
 
                 <Button
+                sx={{ml: 1}}
                     variant="contained"
                     onClick={handleNewRound}
                     disabled={roundCounter === questionList.length}
