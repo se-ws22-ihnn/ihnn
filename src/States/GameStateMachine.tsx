@@ -6,6 +6,7 @@ import { QuestionListContext } from '../Context/QuestionsListContext';
 import FinalScores from './FinalScores';
 import Game from './Game';
 import PrepareGame from './PrepareGame';
+import FeedbackIcon from '@mui/icons-material/Feedback';
 
 export default function GameStateMachine() {
     const { group, setRoundCounter } = React.useContext(GroupContext);
@@ -82,6 +83,18 @@ export default function GameStateMachine() {
                     >
                         State 3: zur Startseite
                     </Button>
+                    <Button
+                            color="inherit"
+                            onClick={() =>
+                                window.open(
+                                    'https://forms.gle/eyBToprhCYNJqep28',
+                                    '_blank',
+                                )
+                            }
+                            startIcon={<FeedbackIcon />}
+                        >
+                            Feedback geben
+                        </Button>
                 </>
             )}
         </>

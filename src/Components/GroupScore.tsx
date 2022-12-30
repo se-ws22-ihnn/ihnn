@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
-import { Avatar } from '@mui/material';
+import { Avatar, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // Table Imports
 import {
@@ -16,6 +16,8 @@ import { GroupContext } from '../Context/GroupContext';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { PieChart } from 'react-minimal-pie-chart';
+
+
 
 /* !!!!! aktuell keine Verwendung weil diese Componente in die Game Komponente ausgelagert wurde !!!!
    Dies kann sich aber auch wieder ändern je nach dem wie ich eine Lösung finde (Jannik) */

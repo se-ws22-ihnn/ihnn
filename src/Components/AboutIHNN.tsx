@@ -64,6 +64,18 @@ export default function AboutIhnnDialog() {
                 </Typography>
 
                 <DialogActions sx={{ mr: 2 }}>
+                <Button
+                        variant="outlined"
+                        color="inherit"
+                        onClick={() =>
+                            window.open(
+                                'https://forms.gle/eyBToprhCYNJqep28',
+                                '_blank',
+                            )
+                        }
+                    >
+                        Feedback geben
+                    </Button>
                     <Button
                         variant="outlined"
                         color="inherit"
