@@ -36,16 +36,17 @@ export default function GroupScore() {
 
     return (
         <>
-            <Block>
+            <Block elevation={10}>
                 <h2>Runden gespielt: {roundCounter}</h2>
                 <TableContainer component={Paper}>
-                    <Table
+                    <Table 
                         sx={{
                             minWidth: 250,
                             backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                            
                         }}
                     >
-                        <TableHead></TableHead>
+                        <TableHead ></TableHead>
                         <TableBody>
                             {/* Table bauen pro Gruppenmitglied */}
                             {group.map((currentPlayer) => (
@@ -104,7 +105,7 @@ const voteData = [
 
     return (
         <>
-            <Block>
+            <Block elevation={10}>
                 <h2>Verteilung aller Stimmen</h2>
                 <PieChart
                     data={voteData}

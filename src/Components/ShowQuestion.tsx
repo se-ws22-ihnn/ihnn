@@ -22,7 +22,7 @@ export default function ShowQuestion() {
 
     return (
         <>
-        <Block>
+        <Block elevation={10} >
             <h2>Ich habe noch nie ...</h2>
             <Typography
             color="inherit" //Farbe des Testfragen Textes

@@ -17,6 +17,9 @@ import { green, red } from '@mui/material/colors';
 import { useState } from 'react';
 import HandlePlayerVoting from './HandlePlayerVoting';
 
+/* !!!!! aktuell keine Verwendung weil diese Componente in die Game Komponente ausgelagert wurde !!!!
+   Dies kann sich aber auch wieder ändern je nach dem wie ich eine Lösung finde (Jannik) */
+
 const Block = styled(Paper)(({ theme }) => ({
     backgroundColor:
         theme.palette.mode === 'dark'
@@ -33,7 +36,7 @@ export default function GroupVoting() {
 
     return (
         <>
-            <Block>
+            <Block elevation={10}>
                 <h2>Votings der Gruppenmitglieder </h2>
                 <TableContainer component={Paper}>
                     <Table
