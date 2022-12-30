@@ -1,5 +1,5 @@
 # dockerizing our app (alpine is a lightweight linux distro)
-FROM node:alpine
+FROM node:18-alpine
 
 # using /usr/app as work directory
 WORKDIR /usr/app

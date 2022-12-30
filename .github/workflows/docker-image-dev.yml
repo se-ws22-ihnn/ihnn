@@ -1,10 +1,7 @@
-name: Publish docker images from main
+name: Build docker dev image on request
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  on: [workflow_dispatch]
 
 jobs:
   build:
@@ -12,6 +9,10 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
+
+    - name: Get commit hash for release
+      id: commit
+      uses: pr-mpt/actions-commit-hash@v2
     
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v1
@@ -22,6 +23,5 @@ jobs:
     
     - name: Build the Docker image and tag it with todays date, also as latest build
       run: |
-        docker build . --tag ghcr.io/se-ws22-ihnn/ihnn:latest 
-        docker push ghcr.io/se-ws22-ihnn/ihnn:latest
-        
+        docker build . --tag ghcr.io/se-ws22-ihnn/ihnn:${{ steps.commit.outputs.short }}
+        docker push ghcr.io/se-ws22-ihnn/ihnn:${{ steps.commit.outputs.short }}
