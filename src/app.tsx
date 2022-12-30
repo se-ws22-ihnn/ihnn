@@ -6,26 +6,6 @@ import { QuestionListContextProvider } from './Context/QuestionsListContext';
 import lightTheme from './Themes/light';
 import GameStateMachine from './States/GameStateMachine';
 
-/* adding a global visible background image to the page */
-/* load it with  <div style={background.image}> */
-
-// let w = window.innerWidth;
-// let h = window.innerHeight;
-// const background = {
-//     image: {
-//         minHeight: '100vh',
-//         backgroundColor: '#BFB59E',
-//         backgroundSize: w + 'px ' + h + 'px',
-//     },
-//     image2: {
-//         backgroundImage: "url(images/logo512.png)",
-//         backgroundRepeat: 'no-repeat',
-//     },
-// };
-
-
-
-
 export default function App() {
     return (
         <ThemeProvider theme={lightTheme}>
@@ -34,7 +14,7 @@ export default function App() {
                 <GroupContextProvider>
                 
                     <div 
-                        style={{ backgroundImage: "url(images/logo512.png), url(images/light-noise-background.png)",
+                        style={{ backgroundImage: "url(images/background-logo.png), url(images/light-noise-background.png)",
                         
                         minHeight: '100vh', 
                         backgroundRepeat: 'no-repeat, repeat',
