@@ -99,8 +99,8 @@ export function GroupScoreChart() {
     const allIDidNot = group.map((currentPlayer) => (currentPlayer.iDidNotCounter)).reduce((currentValue, perItem)=>{currentValue += perItem; return currentValue},0);
 
 const voteData = [
-    { title: 'Yes', value: allIDid, color: '#3a883d' },
-    { title: 'No', value: allIDidNot, color: '#dd3a2e' },
+    { title: 'Yes', value: allIDid, color: '#013e4f' },
+    { title: 'No', value: allIDidNot, color: '#ac0014' },
 ];
 
     return (
