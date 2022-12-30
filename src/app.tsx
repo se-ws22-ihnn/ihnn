@@ -1,4 +1,4 @@
-import { Box, ThemeProvider, Typography } from '@mui/material';
+import { ThemeProvider } from '@mui/material';
 import './index.css';
 import ButtonAppBar from './Components/Header';
 import { GroupContextProvider } from './Context/GroupContext';

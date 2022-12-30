@@ -1,5 +1,4 @@
 import { createContext, useState } from 'react';
-import { Question } from '../types/questionType';
 
 // ===> Context to make the Grouplist from the useState public
 type ContextProps = {

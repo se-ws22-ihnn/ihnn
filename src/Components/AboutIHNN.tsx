@@ -4,7 +4,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import InfoIcon from '@mui/icons-material/Info';
-import { Box, Divider, Paper, Stack, Typography } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 
 export default function AboutIhnnDialog() {
     const [open, setOpen] = React.useState(true);
