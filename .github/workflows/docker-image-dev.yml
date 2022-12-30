@@ -1,7 +1,6 @@
 name: Build docker dev image on request
 
-on:
-  on: [workflow_dispatch]
+on: [workflow_dispatch]
 
 jobs:
   build:
