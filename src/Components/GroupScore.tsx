@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
-import { Avatar, Divider, Radio, Switch, Typography } from '@mui/material';
+import { Avatar } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // Table Imports
 import {
@@ -15,7 +15,6 @@ import {
 import { GroupContext } from '../Context/GroupContext';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
-import HandlePlayerVoting from './HandlePlayerVoting';
 import { PieChart } from 'react-minimal-pie-chart';
 
 /* !!!!! aktuell keine Verwendung weil diese Componente in die Game Komponente ausgelagert wurde !!!!
@@ -95,8 +94,8 @@ export default function GroupScore() {
 
 export function GroupScoreChart() {
     const { group } = React.useContext(GroupContext);
-const allIDid = group.map((currentPlayer) => (currentPlayer.iDidCounter)).reduce((currentValue, perItem)=>{currentValue += perItem; return currentValue},0);
-const allIDidNot = group.map((currentPlayer) => (currentPlayer.iDidNotCounter)).reduce((currentValue, perItem)=>{currentValue += perItem; return currentValue},0);
+    const allIDid = group.map((currentPlayer) => (currentPlayer.iDidCounter)).reduce((currentValue, perItem)=>{currentValue += perItem; return currentValue},0);
+    const allIDidNot = group.map((currentPlayer) => (currentPlayer.iDidNotCounter)).reduce((currentValue, perItem)=>{currentValue += perItem; return currentValue},0);
 
 const voteData = [
     { title: 'Yes', value: allIDid, color: '#3a883d' },

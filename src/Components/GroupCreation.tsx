@@ -18,7 +18,7 @@ import {
     TableContainer,
     TableRow,
 } from '@mui/material';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import { Player } from '../types/playerType';
 // icon imports
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
