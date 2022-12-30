@@ -9,19 +9,22 @@ import CreateQuestion from "./CreateQuestion";
 import ThemeController from "./ThemeController";
 import AboutIhnnDialog from "./AboutIHNN";
 
+
+
 export default function ButtonAppBar() {
 	return (
 		
 			<AppBar 
 			position="static"
 			>
-				<Toolbar color= "inherit"
+				<Toolbar color= "inherit" 
+				
 				
 				>
 					{/* Logo IHNN Section */}
 
 					<ExploreIcon
-						sx={{ display: { xs: "flex", md: "flex" }, mr: 1 }}
+						sx={{ display: { xs: "flex", md: "flex" }, mr: 1, }}
 					/>
 					<Typography
 						variant="h6"

@@ -20,7 +20,7 @@ export default function App() {
                         backgroundRepeat: 'no-repeat, repeat',
                         backgroundPosition: 'center 100px',
                         backgroundSize: '600px, 50px',
-                        }}>
+                        }}> { /*Hintergrund und Logo initialisierung*/ }
 
 
                         {/* style={background.image}  */}
