@@ -8,7 +8,6 @@ import { Button, Divider, Stack } from '@mui/material';
 import CreateQuestion from './CreateQuestion';
 import ThemeController from './ThemeController';
 import AboutIhnnDialog from './AboutIHNN';
-import FeedbackIcon from '@mui/icons-material/Feedback';
 
 export default function ButtonAppBar() {
     return (
@@ -49,18 +48,6 @@ export default function ButtonAppBar() {
                 <Box sx={{ display: { marginRight: 'auto' } }}>
                     <Stack direction="row" spacing={2}>
                         <CreateQuestion />
-                        <Button
-                            color="inherit"
-                            onClick={() =>
-                                window.open(
-                                    'https://forms.gle/eyBToprhCYNJqep28',
-                                    '_blank',
-                                )
-                            }
-                            startIcon={<FeedbackIcon />}
-                        >
-                            Feedback geben
-                        </Button>
                     </Stack>
                 </Box>
 

@@ -59,6 +59,11 @@ export default function GameStateMachine() {
                     >
                         State 1: Spiel starten
                     </Button>
+
+                    <Button color="inherit" onClick={() =>
+                        window.open('https://forms.gle/eyBToprhCYNJqep28','_blank',)}
+                        startIcon={<FeedbackIcon />}>Feedback geben
+                    </Button>
                 </>
             )}
             {state == 1 && (
@@ -70,6 +75,11 @@ export default function GameStateMachine() {
                         sx={{ m: 2 }}
                     >
                         State 2: Spiel beenden
+                    </Button>
+
+                    <Button color="inherit" onClick={() =>
+                        window.open('https://forms.gle/eyBToprhCYNJqep28','_blank',)}
+                        startIcon={<FeedbackIcon />}>Feedback geben
                     </Button>
                 </>
             )}
@@ -83,18 +93,11 @@ export default function GameStateMachine() {
                     >
                         State 3: zur Startseite
                     </Button>
-                    <Button
-                            color="inherit"
-                            onClick={() =>
-                                window.open(
-                                    'https://forms.gle/eyBToprhCYNJqep28',
-                                    '_blank',
-                                )
-                            }
-                            startIcon={<FeedbackIcon />}
-                        >
-                            Feedback geben
-                        </Button>
+                    
+                    <Button color="inherit" onClick={() =>
+                        window.open('https://forms.gle/eyBToprhCYNJqep28','_blank',)}
+                        startIcon={<FeedbackIcon />}>Feedback geben
+                    </Button>
                 </>
             )}
         </>
