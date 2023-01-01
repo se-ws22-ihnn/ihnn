@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Typography } from '@mui/material';
+import { Button, Table, TableContainer, Typography } from '@mui/material';
 import { QuestionListContext } from '../Context/QuestionsListContext';
 import { GroupContext } from '../Context/GroupContext';
 import { styled } from '@mui/material/styles';
@@ -24,6 +24,14 @@ export default function ShowQuestion() {
         <>
         <Block elevation={10} >
             <h2>Ich habe noch nie ...</h2>
+            <TableContainer component={Paper}>
+                <Table
+                    sx={{
+                            minWidth: 100,
+                            maxWidth: 500,
+                            margin: 1,
+
+                        }}>
             <Typography
             color="inherit" //Farbe des Testfragen Textes
             >
@@ -34,7 +42,8 @@ export default function ShowQuestion() {
             {/* {questionList.map((currentQuestion, roundCounter) => (
                 <Typography>{currentQuestion.questionText}</Typography>
             ))} */}
-
+                                </Table>
+                </TableContainer>
         </Block>
         </>
     );

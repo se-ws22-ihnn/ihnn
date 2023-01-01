@@ -44,7 +44,7 @@ export default function GroupScore() {
                     <Table 
                         sx={{
                             minWidth: 250,
-                            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                            
                             
                         }}
                     >

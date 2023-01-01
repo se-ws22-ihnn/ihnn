@@ -42,7 +42,7 @@ export default function GroupVoting() {
                     <Table
                         sx={{
                             minWidth: 250,
-                            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                            
                         }}
                     >
                         <TableHead></TableHead>

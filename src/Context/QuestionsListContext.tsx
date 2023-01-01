@@ -25,7 +25,7 @@ export const QuestionListContextProvider = ({children}: ProviderProps) => {
     const initalQuestionList = [
         {
             id: 1,
-            questionText: "Ich war noch nie Fallschirm springen",
+            questionText: "Ich habe noch nie Fallschirm gesprungen",
             kategorie: "adventure"
           },{
             id: 2,
@@ -37,11 +37,11 @@ export const QuestionListContextProvider = ({children}: ProviderProps) => {
             kategorie: "adventure"
           },{
             id: 4,
-            questionText: "Ich bin noch nie von einer Klippe gesprungen",
+            questionText: "Ich habe noch nie Bungee Jumping von einer Klippe aus gemacht",
             kategorie: "adventure"
           },{
             id: 5,
-            questionText: "Ich bin noch nie Jetski gefahren",
+            questionText: "Ich habe noch nie einen Jetski gefahren",
             kategorie: "adventure"
           },{
             id: 6,
