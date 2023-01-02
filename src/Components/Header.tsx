@@ -54,8 +54,8 @@ export default function ButtonAppBar() {
                 <Box sx={{ display: { marginLeft: 'auto' } }}>
                     <Stack direction="row" spacing={2}>
                         <AboutIhnnDialog />
-                        {/* Optional Theme Selector as nice to have, currently placeholder */}
-                        <ThemeController />
+                        {/* Optional Theme Selector as nice to have #15 */}
+                        {/* <ThemeController /> */}
                     </Stack>
                 </Box>
             </Toolbar>
