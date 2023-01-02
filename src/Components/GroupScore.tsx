@@ -104,7 +104,7 @@ const voteData = [
     return (
         <>
             <Block elevation={10}>
-                <h2>Verteilung aller Stimmen</h2>
+                <h3>Verteilung aller Stimmen</h3>
                 <PieChart
                     data={voteData}
                     lineWidth={20}

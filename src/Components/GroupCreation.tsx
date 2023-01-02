@@ -72,7 +72,7 @@ export function ListGroupMember() {
     return (
         <>
             <Block elevation={10}>
-                <h2>Aktuelle Spieler</h2>
+                <h3>Aktuelle Spieler</h3>
                 <TableContainer component={Paper}>
                     <Table
                         sx={{
@@ -169,7 +169,7 @@ export function AddGroupMember() {
         <>
             <Block elevation={10}>
                 <Box component="form" onSubmit={formik.handleSubmit} noValidate>
-                    <h2>Spieler hinzuf&uuml;gen</h2>
+                    <h3>Spieler hinzuf&uuml;gen</h3>
                     {/* <FormControl fullWidth > */}
                     {/* <InputLabel id="name-label">Name</InputLabel> */}
                     <TextField

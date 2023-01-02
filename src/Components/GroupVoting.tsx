@@ -36,7 +36,7 @@ export default function GroupVoting() {
     return (
         <>
             <Block elevation={10}>
-                <h2>Votings der Gruppenmitglieder </h2>
+                <h3>Votings der Gruppenmitglieder </h3>
                 <TableContainer component={Paper}>
                     <Table
                         sx={{
