@@ -39,39 +39,41 @@ export default function CreateQuestionByDialog() {
 	}
 
 
+    return (
+        <div>
+            <Button
+                color="inherit"
+                onClick={handleClickOpen}
+                startIcon={<QuizIcon />}
+            >
+                Frage einreichen
+            </Button>
 
-	return (
-		<div>
-			<Button
-				color="inherit"
-				onClick={handleClickOpen}
-				startIcon={<QuizIcon />}
-			>
-				Frage einreichen
-			</Button>
+            <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>Reiche deine eigene Frage ein:</DialogTitle>
+                <DialogContent style={{ paddingTop: '5px' }}>
+                    <TextField
+                        autoFocus
+                        id="question"
+                        label="Schreibe deine Frage im passenden Stil"
+                        type="text"
+                        fullWidth
+                        variant="outlined"
+                        value={questionTextInput}
+                        onChange={(event) =>
+                            setQuestionTextInput(event.target.value)
+                        }
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Abbrechen</Button>
+                    <Button variant="contained" onClick={addQuestionToList}>
+                        Einreichen
+                    </Button>
+                </DialogActions>
 
-			<Dialog open={open} onClose={handleClose}>
-				<DialogTitle>Reiche deine eigene Frage ein:</DialogTitle>
-				<DialogContent>
-					<TextField
-						autoFocus
-						
-						id="question"
-						label="Schreibe deine Frage im passenden Stil"
-						type="text"
-						fullWidth
-						variant="outlined"
-						value={questionTextInput}
-						onChange={(event) => setQuestionTextInput(event.target.value)}
-					/>
-				</DialogContent>
-				<DialogActions>
-					<Button  onClick={handleClose}>Abbrechen</Button>
-					<Button variant="contained" onClick={addQuestionToList}>Einreichen</Button>
-				</DialogActions>
-
-				{/* Handler einfügen für das Prüfen der Eingabe und Übertragen der Daten an die Datenbank/Mongo */}
-			</Dialog>
-		</div>
-	);
+                {/* Handler einfügen für das Prüfen der Eingabe und Übertragen der Daten an die Datenbank/Mongo */}
+            </Dialog>
+        </div>
+    );
 }
