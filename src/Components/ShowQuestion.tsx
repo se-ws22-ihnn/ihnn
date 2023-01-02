@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Table, TableContainer, Typography } from '@mui/material';
+import { Table, TableContainer, Typography } from '@mui/material';
 import { QuestionListContext } from '../Context/QuestionsListContext';
 import { GroupContext } from '../Context/GroupContext';
 import { styled } from '@mui/material/styles';
@@ -22,29 +22,21 @@ export default function ShowQuestion() {
 
     return (
         <>
-        <Block elevation={10} >
-            <h2>Ich habe noch nie ...</h2>
-            <TableContainer component={Paper}>
-                <Table
-                    sx={{
-                            minWidth: 100,
-                            maxWidth: 500,
-                            margin: 1,
+            <Block elevation={10}>
+                <h2>Ich habe noch nie ...</h2>
+                <Block sx={{ backgroundColor: '#eeeeee' }}>
+                    <Typography
+                        color="inherit" //Farbe des Testfragen Textes
+                    >
+                        {questionList[roundCounter - 1].questionText}
+                    </Typography>
 
-                        }}>
-            <Typography
-            color="inherit" //Farbe des Testfragen Textes
-            >
-                {questionList[roundCounter - 1].questionText}
-            </Typography>
-
-            {/* aktuell wird jede frage in der liste angezeigt, da noch nicht auf einen index gezeigt wird */}
-            {/* {questionList.map((currentQuestion, roundCounter) => (
-                <Typography>{currentQuestion.questionText}</Typography>
-            ))} */}
-                                </Table>
-                </TableContainer>
-        </Block>
+                    {/* aktuell wird jede frage in der liste angezeigt, da noch nicht auf einen index gezeigt wird */}
+                    {/* {questionList.map((currentQuestion, roundCounter) => (
+                    <Typography>{currentQuestion.questionText}</Typography>
+                ))} */}
+                </Block>
+            </Block>
         </>
     );
 }
