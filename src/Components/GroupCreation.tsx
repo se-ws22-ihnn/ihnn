@@ -239,12 +239,12 @@ export function AddGroupMember() {
                     <br></br>
                     <Button
                         type="submit"
-                        disabled={(formik.isValid = false)}
+                        disabled={!formik.isValid}
                         variant="contained"
                         endIcon={<PersonAddIcon />}
                         /* onClick={addPlayerToGroup} */
                     >
-                        Add
+                        Hinzufügen
                     </Button>
                     {/* </FormControl> */}
                 </Box>
