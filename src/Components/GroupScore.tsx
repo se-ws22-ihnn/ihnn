@@ -50,6 +50,7 @@ export default function GroupScore() {
                                         <Avatar
                                             sx={{
                                                 bgcolor: currentPlayer.color,
+                                                color: '#ffffff',
                                             }}
                                         >
                                             {currentPlayer.shortname}

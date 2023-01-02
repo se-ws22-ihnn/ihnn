@@ -52,6 +52,7 @@ export default function GroupVoting() {
                                         <Avatar
                                             sx={{
                                                 bgcolor: currentPlayer.color,
+                                                color: '#ffffff',
                                             }}
                                         >
                                             {currentPlayer.shortname}
