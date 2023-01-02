@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
-import { Avatar, Divider, Radio, Switch, Typography } from '@mui/material';
+import { Avatar, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // Table Imports
 import {
@@ -15,18 +15,9 @@ import {
 import { GroupContext } from '../Context/GroupContext';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
-import HandlePlayerVoting from './HandlePlayerVoting';
 import { PieChart } from 'react-minimal-pie-chart';
 
-const voteData = [
-    { title: 'Yes', value: 10, color: '#3a883d' },
-    { title: 'No', value: 15, color: '#dd3a2e' },
-];
 
-const defaultLabelStyle = {
-    fontSize: '5px',
-    fontFamily: 'sans-serif',
-};
 
 /* !!!!! aktuell keine Verwendung weil diese Componente in die Game Komponente ausgelagert wurde !!!!
    Dies kann sich aber auch wieder ändern je nach dem wie ich eine Lösung finde (Jannik) */
@@ -47,16 +38,17 @@ export default function GroupScore() {
 
     return (
         <>
-            <Block>
+            <Block elevation={10}>
                 <h2>Runden gespielt: {roundCounter}</h2>
                 <TableContainer component={Paper}>
-                    <Table
+                    <Table 
                         sx={{
                             minWidth: 250,
-                            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                            
+                            
                         }}
                     >
-                        <TableHead></TableHead>
+                        <TableHead ></TableHead>
                         <TableBody>
                             {/* Table bauen pro Gruppenmitglied */}
                             {group.map((currentPlayer) => (
@@ -105,10 +97,17 @@ export default function GroupScore() {
 
 export function GroupScoreChart() {
     const { group } = React.useContext(GroupContext);
+    const allIDid = group.map((currentPlayer) => (currentPlayer.iDidCounter)).reduce((currentValue, perItem)=>{currentValue += perItem; return currentValue},0);
+    const allIDidNot = group.map((currentPlayer) => (currentPlayer.iDidNotCounter)).reduce((currentValue, perItem)=>{currentValue += perItem; return currentValue},0);
+
+const voteData = [
+    { title: 'Yes', value: allIDid, color: '#013e4f' },
+    { title: 'No', value: allIDidNot, color: '#ac0014' },
+];
 
     return (
         <>
-            <Block>
+            <Block elevation={10}>
                 <h2>Verteilung aller Stimmen</h2>
                 <PieChart
                     data={voteData}

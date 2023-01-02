@@ -36,13 +36,13 @@ export default function GroupVoting() {
 
     return (
         <>
-            <Block>
+            <Block elevation={10}>
                 <h2>Votings der Gruppenmitglieder </h2>
                 <TableContainer component={Paper}>
                     <Table
                         sx={{
                             minWidth: 250,
-                            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                            
                         }}
                     >
                         <TableHead></TableHead>

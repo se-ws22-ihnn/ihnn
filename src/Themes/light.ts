@@ -25,7 +25,7 @@ const lightTheme = createTheme({
             /* hint: 'rgba(0,0,0,0.37)', */
         },
         error: {
-            main: '#f54336',
+            main: '#ac0014',
             light: '#f6685e',
             dark: '#ac2e25',
             contrastText: '#ffffff',
@@ -37,7 +37,7 @@ const lightTheme = createTheme({
             dark: '#894b15',
         },
         success: {
-            main: '#4cb050',
+            main: '#013e4f',
             light: '#6fc073',
             dark: '#357c38',
             contrastText: 'rgba(0,0,0,0.86)',

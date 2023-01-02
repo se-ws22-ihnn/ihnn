@@ -18,7 +18,7 @@ import {
     TableContainer,
     TableRow,
 } from '@mui/material';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import { Player } from '../types/playerType';
 // icon imports
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
@@ -75,12 +75,13 @@ export function ListGroupMember() {
     };
     return (
         <>
-            <Block>
+            <Block elevation={10}>
                 <h2>Aktuelle Spieler</h2>
                 <TableContainer component={Paper}>
                     <Table
                         sx={{
-                            minWidth: 250
+                            minWidth: 250,
+                            
                         }}
                         aria-label="Spielerliste"
                     >
@@ -180,7 +181,7 @@ export function AddGroupMember() {
 
     return (
         <>
-            <Block>
+            <Block elevation={10}>
                 <Box component="form" onSubmit={formik.handleSubmit} noValidate>
                     <h2>Spieler hinzuf&uuml;gen</h2>
                     {/* <FormControl fullWidth > */}

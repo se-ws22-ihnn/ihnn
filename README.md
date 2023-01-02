@@ -1,4 +1,9 @@
-# IHNN
+# Ich habe noch nie…
+
+<table><tr>
+<td><img src="public/images/github-socialcard.png" alt="our logo" style="width:300px;"/></td>
+<td style="vertical-align: top"><img src="https://img.shields.io/github/actions/workflow/status/se-ws22-ihnn/ihnn/docker-image.yml?branch=main&label=build" alt="build status"></td>
+</tr></table>
 
 Dieses Projekt ist ein Projekt im Rahmen der Veranstaltung Software Engineering an der HAW Hamburg. 
 
