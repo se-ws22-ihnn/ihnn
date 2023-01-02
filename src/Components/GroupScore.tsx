@@ -101,7 +101,9 @@ export function GroupScoreChart() {
             <>
                 <Block elevation={10}>
                     <h3>Verteilung aller Stimmen</h3>
-                    <p>Es wurden keine Stimmen abgegeben</p>
+                    <Block sx={{ bgcolor: '#bfb59e' }}>
+                        <p>Es wurden keine Stimmen abgegeben</p>
+                    </Block>
                 </Block>
             </>
         );
