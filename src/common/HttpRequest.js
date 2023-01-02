@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {useExecuteRequest, usePrepareMutation} from "./TanstackQueryInterface";
 
 export class HttpRequestBuilder {
@@ -87,7 +88,7 @@ export class HttpRequest {
         });
     }
 
-    get(mutable = false) {
+    get = (mutable = false) => {
         return (mutable) ? useExecuteRequest(this) : usePrepareMutation(this);
     }
 
