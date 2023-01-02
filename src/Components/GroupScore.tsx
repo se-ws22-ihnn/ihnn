@@ -93,13 +93,34 @@ export default function GroupScore() {
 
 export function GroupScoreChart() {
     const { group } = React.useContext(GroupContext);
-    const allIDid = group.map((currentPlayer) => (currentPlayer.iDidCounter)).reduce((currentValue, perItem)=>{currentValue += perItem; return currentValue},0);
-    const allIDidNot = group.map((currentPlayer) => (currentPlayer.iDidNotCounter)).reduce((currentValue, perItem)=>{currentValue += perItem; return currentValue},0);
+    const allIDid = group
+        .map((currentPlayer) => currentPlayer.iDidCounter)
+        .reduce((currentValue, perItem) => {
+            currentValue += perItem;
+            return currentValue;
+        }, 0);
+    const allIDidNot = group
+        .map((currentPlayer) => currentPlayer.iDidNotCounter)
+        .reduce((currentValue, perItem) => {
+            currentValue += perItem;
+            return currentValue;
+        }, 0);
 
-const voteData = [
-    { title: 'Yes', value: allIDid, color: '#013e4f' },
-    { title: 'No', value: allIDidNot, color: '#ac0014' },
-];
+    const voteData = [
+        { title: 'Yes', value: allIDid, color: '#013e4f' },
+        { title: 'No', value: allIDidNot, color: '#ac0014' },
+    ];
+
+    if (allIDid === 0 && allIDidNot === 0) {
+        return (
+            <>
+                <Block elevation={10}>
+                    <h3>Verteilung aller Stimmen</h3>
+                    <p>Es wurden keine Stimmen abgegeben</p>
+                </Block>
+            </>
+        );
+    }
 
     return (
         <>
