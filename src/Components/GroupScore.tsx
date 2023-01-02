@@ -39,7 +39,7 @@ export default function GroupScore() {
     return (
         <>
             <Block elevation={10}>
-                <h2>Runden gespielt: {roundCounter}</h2>
+                <h3>Runden gespielt: {roundCounter}</h3>
                 <TableContainer component={Paper}>
                     <Table 
                         sx={{
