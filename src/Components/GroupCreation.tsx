@@ -160,7 +160,8 @@ export function AddGroupMember() {
             iDidCounter: 0,
             iDidNotCounter: 0,
         };
-        console.log(newPlayer);
+        // Debug
+        // console.log(newPlayer);
         setGroup([...group, newPlayer]);
     };
 
