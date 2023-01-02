@@ -7,6 +7,8 @@ import { Button } from '@mui/material';
 import { GroupContext } from '../Context/GroupContext';
 import { QuestionListContext } from '../Context/QuestionsListContext';
 import ShowQuestion from '../Components/ShowQuestion';
+// icon imports
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 export default function Game() {
     const { roundCounter, setRoundCounter } = React.useContext(GroupContext);
@@ -35,10 +37,12 @@ export default function Game() {
                 </Grid>
 
                 <Button
-                sx={{ml: 1}}
+                    sx={{ ml: 1 }}
                     variant="contained"
                     onClick={handleNewRound}
                     disabled={roundCounter === questionList.length}
+                    startIcon={<NavigateNextIcon />}
+                    endIcon={<NavigateNextIcon />}
                 >
                     Nächste Frage
                 </Button>

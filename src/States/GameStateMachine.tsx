@@ -6,7 +6,11 @@ import { QuestionListContext } from '../Context/QuestionsListContext';
 import FinalScores from './FinalScores';
 import Game from './Game';
 import PrepareGame from './PrepareGame';
+// icon imports
 import FeedbackIcon from '@mui/icons-material/Feedback';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import StopIcon from '@mui/icons-material/Stop';
+import HomeIcon from '@mui/icons-material/Home';
 
 export default function GameStateMachine() {
     const { group, setRoundCounter } = React.useContext(GroupContext);
@@ -61,8 +65,9 @@ export default function GameStateMachine() {
                         variant="contained"
                         disabled={group.length < 2}
                         sx={{ m: 2 }}
+                        startIcon={<PlayArrowIcon />}
                     >
-                        State 1: Spiel starten
+                        Spiel starten
                     </Button>
 
                     <Button
@@ -86,8 +91,9 @@ export default function GameStateMachine() {
                         onClick={increaseState}
                         variant="contained"
                         sx={{ m: 2 }}
+                        startIcon={<StopIcon />}
                     >
-                        State 2: Spiel beenden
+                        Spiel beenden
                     </Button>
 
                     <Button
@@ -111,8 +117,9 @@ export default function GameStateMachine() {
                         onClick={handleGameReset}
                         variant="contained"
                         sx={{ m: 2 }}
+                        startIcon={<HomeIcon />}
                     >
-                        State 3: zur Startseite
+                        zur Startseite
                     </Button>
 
                     <Button
