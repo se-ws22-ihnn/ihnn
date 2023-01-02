@@ -69,6 +69,20 @@ export function ListGroupMember() {
         // new initialising of the Group by all the values from the copyGroup
         setGroup([...copyOfGroup]);
     };
+
+    if (group.length === 0) {
+        return (
+            <>
+                <Block elevation={10}>
+                    <h3>Aktuelle Spieler</h3>
+                    <Block sx={{ bgcolor: '#bfb59e' }}>
+                        <p>Keine Spieler vorhanden</p>
+                    </Block>
+                </Block>
+            </>
+        );
+    }
+
     return (
         <>
             <Block elevation={10}>
