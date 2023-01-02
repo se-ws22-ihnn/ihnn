@@ -3,14 +3,14 @@ import {HttpRequest} from "./HttpRequest";
 import {handleRequest} from "./RequestResolver";
 
 
-export const executeRequest = (httpRequest: HttpRequest) => {
+export const useExecuteRequest = (httpRequest) => {
     const query = useQuery(httpRequest.key, handleRequest(httpRequest), {
         enabled: httpRequest.enabled
     });
     return new QueryInterface(query.data, query.isLoading, query.error, query.refetch, undefined);
 }
 
-export const prepareMutation = (httpRequest: HttpRequest) => {
+export const usePrepareMutation = (httpRequest) => {
     const mutation = useMutation(handleRequest(httpRequest));
 
     return new QueryInterface(mutation.data, mutation.error, mutation.isLoading, undefined, mutation.mutateAsync);

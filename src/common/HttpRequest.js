@@ -1,16 +1,13 @@
-import {executeRequest, prepareMutation} from "./TanstackQueryInterface";
+import {useExecuteRequest, usePrepareMutation} from "./TanstackQueryInterface";
 
 export class HttpRequestBuilder {
-    #method: string; //TODO enum
-    #url: string;
-    #headers: Object;
-
-    #key: Array<string> = [];
-
-    #queryParams: Object;
-    #mutable: boolean = false;
-
-    #enabled: boolean = true;
+    #method; //TODO enum
+    #url;
+    #headers;
+    #key = [];
+    #queryParams;
+    #mutable = false;
+    #enabled = true;
 
     get() {
         this.#method = "GET";
@@ -32,17 +29,17 @@ export class HttpRequestBuilder {
         return this;
     }
 
-    url(url: string) {
+    url(url) {
         this.#url = url;
         return this;
     }
 
-    headers(headers: Object) {
+    headers(headers) {
         this.#headers = headers;
         return this;
     }
 
-    enabled(enable: boolean) {
+    enabled(enable) {
         this.#enabled = enable
         return this;
     }
@@ -52,7 +49,7 @@ export class HttpRequestBuilder {
         return this;
     }
 
-    key(key: Array<string>) {
+    key(key) {
         this.#key = key;
         return this;
     }
@@ -64,19 +61,15 @@ export class HttpRequestBuilder {
 }
 
 export class HttpRequest {
-    method: string;
-    url: string;
-    headers: Object;
+    method;
+    url;
+    headers;
+    key;
+    queryParams;
+    pathParams;
+    enabled;
 
-    key: Array<String>;
-
-    queryParams: Object;
-
-    pathParams: Object;
-
-    enabled: boolean;
-
-    constructor(method: string, url: string, headers: Object, key: Array<string>, queryParams: Object, pathParams: Object, enabled: boolean) {
+    constructor(method, url, headers, key, queryParams, pathParams, enabled) {
         this.method = method;
         this.url = url;
         this.headers = headers;
@@ -87,15 +80,15 @@ export class HttpRequest {
     }
 
     buildUrl() {
-        Object.entries(this.pathParams).forEach(([key, value]:Array<String>) => {
+        Object.entries(this.pathParams).forEach(([key, value]) => {
             if (this.url.includes(`:${key}`)) {
                 this.url = this.url.replace(`:${key}`, value);
             }
         });
     }
 
-    get(mutable: boolean = false) {
-        return (mutable) ? executeRequest(this) : prepareMutation(this);
+    get(mutable = false) {
+        return (mutable) ? useExecuteRequest(this) : usePrepareMutation(this);
     }
 
 }

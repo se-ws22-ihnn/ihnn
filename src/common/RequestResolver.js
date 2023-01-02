@@ -4,10 +4,9 @@ import axios from "axios";
 
 export class PostPayload {
 
-    payload: Object;
-    queryParams: Object;
-
-    pathParams: Object;
+    payload;
+    queryParams;
+    pathParams;
 
     constructor(payload, queryParams, pathParams) {
         this.payload = payload;
@@ -16,7 +15,7 @@ export class PostPayload {
     }
 }
 
-const handleGet = (request: HttpRequest) => {
+const handleGet = (request) => {
     return async () => {
         const response = await axios({
             method: request.method,
@@ -31,8 +30,8 @@ const handleGet = (request: HttpRequest) => {
     }
 }
 
-const handleAll = (request: HttpRequest) => {
-    return async (postPayload: PostPayload) => {
+const handleAll = (request) => {
+    return async (postPayload) => {
         let {payload, queryParams, pathParams} = postPayload ?? {};
 
         if (pathParams) {
@@ -53,7 +52,7 @@ const handleAll = (request: HttpRequest) => {
     }
 }
 
-export const handleRequest = (request: HttpRequest) => {
+export const handleRequest = (request) => {
     switch (request.method) {
         case "GET":
             return handleGet(request);
