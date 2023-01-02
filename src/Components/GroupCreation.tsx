@@ -89,6 +89,7 @@ export function ListGroupMember() {
                                         <Avatar
                                             sx={{
                                                 bgcolor: currentPlayer.color,
+                                                color: '#eeeeee',
                                             }}
                                         >
                                             {currentPlayer.shortname}
