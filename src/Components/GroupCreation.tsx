@@ -57,15 +57,11 @@ export function ListGroupMember() {
     const { group, setGroup } = React.useContext(GroupContext);
 
     const removePlayerFromGroup = (selectedPlayer: Player) => {
-        console.log('playerToDelete: ' + selectedPlayer);
-
         // get the index of the PlayerObject we like to delete
         const index = group.indexOf(selectedPlayer);
-        console.log('index: ' + index);
 
         // make a Copy of Group by array deconstructing
         let copyOfGroup = [...group];
-        console.log(copyOfGroup);
 
         // remove the PlayerObject from the copyGroup
         copyOfGroup.splice(index, 1);
@@ -81,7 +77,6 @@ export function ListGroupMember() {
                     <Table
                         sx={{
                             minWidth: 250,
-                            
                         }}
                         aria-label="Spielerliste"
                     >
@@ -90,10 +85,7 @@ export function ListGroupMember() {
                             {/* Table bauen pro Gruppenmitglied */}
                             {group.map((currentPlayer) => (
                                 <TableRow key={currentPlayer.playerId}>
-                                    <TableCell
-                                        align="left"
-                                        key={currentPlayer.playerId}
-                                    >
+                                    <TableCell align="left">
                                         <Avatar
                                             sx={{
                                                 bgcolor: currentPlayer.color,
@@ -102,16 +94,10 @@ export function ListGroupMember() {
                                             {currentPlayer.shortname}
                                         </Avatar>
                                     </TableCell>
-                                    <TableCell
-                                        align="left"
-                                        key={currentPlayer.playerId}
-                                    >
+                                    <TableCell align="left">
                                         {currentPlayer.name}
                                     </TableCell>
-                                    <TableCell
-                                        align="right"
-                                        key={currentPlayer.playerId}
-                                    >
+                                    <TableCell align="right">
                                         <IconButton
                                             color="error"
                                             aria-label="Eintrag entfernen"
@@ -154,7 +140,6 @@ export function AddGroupMember() {
             iDidNotCounter: 0,
         },
         onSubmit: (values) => {
-            console.log('onSubmit!');
             addPlayerToGroup(values.name, values.color);
         },
         validationSchema: Yup.object({
@@ -175,7 +160,7 @@ export function AddGroupMember() {
             iDidCounter: 0,
             iDidNotCounter: 0,
         };
-
+        console.log(newPlayer);
         setGroup([...group, newPlayer]);
     };
 
@@ -189,7 +174,7 @@ export function AddGroupMember() {
                     <TextField
                         required
                         label="Spielername"
-                        sx={{ marginBottom: 1, mr:2 }}
+                        sx={{ marginBottom: 1, mr: 2 }}
                         /* value={playername} */
                         /* onChange={(event) => setPlayername(event.target.value)} */
                         onChange={formik.handleChange}

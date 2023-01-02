@@ -55,7 +55,6 @@ export default function GroupScore() {
                                 <TableRow key={currentPlayer.playerId}>
                                     <TableCell
                                         align="left"
-                                        key={currentPlayer.playerId}
                                     >
                                         <Avatar
                                             sx={{
@@ -67,20 +66,17 @@ export default function GroupScore() {
                                     </TableCell>
                                     <TableCell
                                         align="left"
-                                        key={currentPlayer.playerId}
                                     >
                                         {currentPlayer.name}
                                     </TableCell>
                                     <TableCell
                                         align="right"
-                                        key={currentPlayer.playerId}
                                     >
                                         <CheckCircleIcon color="success" />
                                         {currentPlayer.iDidCounter}
                                     </TableCell>
                                     <TableCell
                                         align="right"
-                                        key={currentPlayer.playerId}
                                     >
                                         <CancelIcon color="error" />
                                         {currentPlayer.iDidNotCounter}

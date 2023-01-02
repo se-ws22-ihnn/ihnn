@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
-import { Avatar, Radio, Switch } from '@mui/material';
+import { Avatar } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // Table Imports
 import {
@@ -13,7 +13,6 @@ import {
 } from '@mui/material';
 // icon imports
 import { GroupContext } from '../Context/GroupContext';
-import { green, red } from '@mui/material/colors';
 import { useState } from 'react';
 import HandlePlayerVoting from './HandlePlayerVoting';
 
@@ -42,7 +41,6 @@ export default function GroupVoting() {
                     <Table
                         sx={{
                             minWidth: 250,
-                            
                         }}
                     >
                         <TableHead></TableHead>
@@ -50,10 +48,7 @@ export default function GroupVoting() {
                             {/* Table bauen pro Gruppenmitglied */}
                             {group.map((currentPlayer) => (
                                 <TableRow key={currentPlayer.playerId}>
-                                    <TableCell
-                                        align="left"
-                                        key={currentPlayer.playerId}
-                                    >
+                                    <TableCell align="left">
                                         <Avatar
                                             sx={{
                                                 bgcolor: currentPlayer.color,
@@ -62,16 +57,10 @@ export default function GroupVoting() {
                                             {currentPlayer.shortname}
                                         </Avatar>
                                     </TableCell>
-                                    <TableCell
-                                        align="left"
-                                        key={currentPlayer.playerId}
-                                    >
+                                    <TableCell align="left">
                                         {currentPlayer.name}
                                     </TableCell>
-                                    <TableCell
-                                        align="right"
-                                        key={currentPlayer.playerId}
-                                    >
+                                    <TableCell align="right">
                                         <HandlePlayerVoting
                                             currentPlayer={currentPlayer}
                                         />
