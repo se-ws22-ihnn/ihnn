@@ -27,7 +27,7 @@ export default function Game() {
 
     return (
         <Box sx={{ flexGrow: 0, m: 2 }}>
-            <h1>Runde: {roundCounter}</h1>
+            <h2>Runde: {roundCounter}</h2>
             <Grid container spacing={2}>
                 <Grid xs={12} sm={6}>
                     <ShowQuestion />

@@ -7,7 +7,7 @@ import GroupScore, { GroupScoreChart } from '../Components/GroupScore';
 export default function FinalScoreCard() {
     return (
         <Box sx={{ flexGrow: 0, m: 2 }}>
-            <h2>Auswertung:</h2>
+            <h2>Auswertung</h2>
             <Grid container spacing={2}>
                 <Grid xs={12} sm={6}>
                     <GroupScore />

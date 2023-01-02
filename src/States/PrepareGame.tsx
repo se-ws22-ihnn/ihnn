@@ -6,6 +6,7 @@ import { AddGroupMember, ListGroupMember } from '../Components/GroupCreation';
 export default function PrepareGame() {
     return (
         <Box sx={{ flexGrow: 0, m: 2 }}>
+            <h2>Gruppe erstellen</h2>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                     <AddGroupMember />
