@@ -17,11 +17,6 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { PieChart } from 'react-minimal-pie-chart';
 
-
-
-/* !!!!! aktuell keine Verwendung weil diese Componente in die Game Komponente ausgelagert wurde !!!!
-   Dies kann sich aber auch wieder ändern je nach dem wie ich eine Lösung finde (Jannik) */
-
 const Block = styled(Paper)(({ theme }) => ({
     backgroundColor:
         theme.palette.mode === 'dark'
@@ -41,21 +36,17 @@ export default function GroupScore() {
             <Block elevation={10}>
                 <h3>Runden gespielt: {roundCounter}</h3>
                 <TableContainer component={Paper}>
-                    <Table 
+                    <Table
                         sx={{
                             minWidth: 250,
-                            
-                            
                         }}
                     >
-                        <TableHead ></TableHead>
+                        <TableHead></TableHead>
                         <TableBody>
                             {/* Table bauen pro Gruppenmitglied */}
                             {group.map((currentPlayer) => (
                                 <TableRow key={currentPlayer.playerId}>
-                                    <TableCell
-                                        align="left"
-                                    >
+                                    <TableCell align="left">
                                         <Avatar
                                             sx={{
                                                 bgcolor: currentPlayer.color,
@@ -64,20 +55,14 @@ export default function GroupScore() {
                                             {currentPlayer.shortname}
                                         </Avatar>
                                     </TableCell>
-                                    <TableCell
-                                        align="left"
-                                    >
+                                    <TableCell align="left">
                                         {currentPlayer.name}
                                     </TableCell>
-                                    <TableCell
-                                        align="right"
-                                    >
+                                    <TableCell align="right">
                                         <CheckCircleIcon color="success" />
                                         {currentPlayer.iDidCounter}
                                     </TableCell>
-                                    <TableCell
-                                        align="right"
-                                    >
+                                    <TableCell align="right">
                                         <CancelIcon color="error" />
                                         {currentPlayer.iDidNotCounter}
                                     </TableCell>
