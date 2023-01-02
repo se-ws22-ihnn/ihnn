@@ -35,17 +35,18 @@ export default function Game() {
                 <Grid xs={12} sm={6}>
                     <GroupVoting key={roundCounter} />
                 </Grid>
-
-                <Button
-                    sx={{ ml: 1 }}
-                    variant="contained"
-                    onClick={handleNewRound}
-                    disabled={roundCounter === questionList.length}
-                    startIcon={<NavigateNextIcon />}
-                    endIcon={<NavigateNextIcon />}
-                >
-                    Nächste Frage
-                </Button>
+                <Grid xs={12}>
+                    <Button
+                        sx={{ width: { xs: '100%', sm: 'auto' } }}
+                        variant="contained"
+                        onClick={handleNewRound}
+                        disabled={roundCounter === questionList.length}
+                        startIcon={<NavigateNextIcon />}
+                        endIcon={<NavigateNextIcon />}
+                    >
+                        Nächste Frage
+                    </Button>
+                </Grid>
             </Grid>
         </Box>
     );
