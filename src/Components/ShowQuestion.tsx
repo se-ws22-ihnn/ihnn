@@ -4,6 +4,7 @@ import { QuestionListContext } from '../Context/QuestionsListContext';
 import { GroupContext } from '../Context/GroupContext';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import { HttpRequestBuilder } from '../common/HttpRequest';
 
 const Block = styled(Paper)(({ theme }) => ({
     backgroundColor:
@@ -19,12 +20,17 @@ const Block = styled(Paper)(({ theme }) => ({
 export default function ShowQuestion() {
     const { questionList } = React.useContext(QuestionListContext);
     const { roundCounter } = React.useContext(GroupContext);
+    const holeFrage = new HttpRequestBuilder()
+        .get()
+        .url('https://api.ihnn.x5f.de/questions')
+        .key('frage')
+        .build();
 
     return (
         <>
             <Block elevation={10}>
                 <h3>Ich habe noch nie ...</h3>
-                <Block sx={{ backgroundColor: '#eeeeee' }}>
+                <Block sx={{ backgroundColor: '#bfb59e' }}>
                     <Typography
                         color="inherit" //Farbe des Testfragen Textes
                     >

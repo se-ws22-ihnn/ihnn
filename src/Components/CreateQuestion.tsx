@@ -1,43 +1,57 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-import QuizIcon from "@mui/icons-material/Quiz";
-import { QuestionListContext } from "../Context/QuestionsListContext";
-import { Question } from "../types/questionType";
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import QuizIcon from '@mui/icons-material/Quiz';
+import { QuestionListContext } from '../Context/QuestionsListContext';
+import { Question } from '../types/questionType';
+import { HttpRequestBuilder } from '../common/HttpRequest';
+import { PostPayload } from '../common/RequestResolver';
 
 export default function CreateQuestionByDialog() {
+    // Handle Open / Close
+    const [open, setOpen] = React.useState(false);
+    const pushQuestion = new HttpRequestBuilder()
+        .post()
+        .url('https://api.ihnn.x5f.de/questions')
+        .key(['question', 'kategorie'])
+        .mutable()
+        .build();
 
-	// Handle Open / Close
-	const [open, setOpen] = React.useState(false);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
 
-	const handleClickOpen = () => {
-		setOpen(true);
-	};
+    const handleClose = () => {
+        setOpen(false);
+    };
 
-	const handleClose = () => {
-		setOpen(false);
-	};
+    // Handle add Question to List
+    const { questionList, setQuestionList } =
+        React.useContext(QuestionListContext);
+    const [questionTextInput, setQuestionTextInput] = React.useState('');
 
-	// Handle add Question to List
-	const { questionList, setQuestionList } = React.useContext(QuestionListContext);
-	const [ questionTextInput, setQuestionTextInput] = React.useState('');
+    const addQuestionToList = () => {
+        const newQuestion: Question = {
+            id:
+                questionList.length +
+                1 /* Hier muss sich was besseres überlegt werden */,
+            questionText: questionTextInput,
+            kategorie: 'default',
+        };
+        setQuestionList([...questionList, newQuestion]);
 
-	const addQuestionToList = () => {
-		const newQuestion: Question = {
-			id: questionList.length + 1, /* Hier muss sich was besseres überlegt werden */
-			questionText: questionTextInput,
-			kategorie: "default"
-		}
-		setQuestionList([...questionList, newQuestion])
-		
-		alert('A Question was submitted: ' + questionTextInput);
-		/* console.log(questionList) */ /* Ausgabe zeigt auch den nuesten eintrag nicht */
-	}
+        alert(
+            'A Question was submitted: ' + questionTextInput,
+        ); /* Ausgabe zeigt auch den nuesten eintrag nicht */
+        /* console.log(questionList) */
 
+        /* pushQuestion.mutate(new PostPayload({ ...newQuestion }), {}); */
+        /* funktionalität klappt nicht, danke Typescript */
+    };
 
     return (
         <div>
