@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import {Question} from '../types/questionType';
 
 const Block = styled(Paper)(({ theme }) => ({
     backgroundColor:
@@ -19,9 +20,13 @@ const Block = styled(Paper)(({ theme }) => ({
 }));
 
 export default function ShowQuestion() {
-    const { questionList } = React.useContext(QuestionListContext);
+    const { questionList, setQuestionList } = React.useContext(QuestionListContext);
+    
     const { roundCounter } = React.useContext(GroupContext);
     const [apiResponse, setApiResponse] = useState(null);
+
+    // um aus data eine Frage zurück zu bauen um diese dann der QuestionListe setQuestionList([...questionList, question]) hinzuzufügen
+    const [question, setQuestion] = useState<Question>()
 
     useEffect(() => {
         /* GET Request to API using axios */
@@ -34,11 +39,30 @@ export default function ShowQuestion() {
             const { data } = resp;
             /* object with keys {_id, question, category, __v} is written to apiResponse */
             setApiResponse(data);
+            console.log("Data:",data)
+            console.log("apiResponse:",apiResponse) // ist null
+            
             /* to do: @Jannik
              * Put object to correct list/object for questions
              * randomize list
              * show just question and maybe category.
              * test & remove to do. */
+
+            // 1. Fragen aus Data wieder zusammenbasteln?
+            // Frage ist wie splitte ich Data auf sodass ich nur die question vergebe
+            data.map()
+            // question?.id = data?._id,
+            // question?.questionText = data.question
+            // question?.kategorie = data.category
+
+            //setQuestion()
+
+            // 2. QuestionList mit jeweils der Zusammengestellten Frage befüllen
+            setQuestionList([...questionList, question])
+
+            // 3. Questlist durchmischen
+            const shuffledArray = questionList.sort((a, b) => 0.5 - Math.random());
+            setQuestionList([...shuffledArray]);
         }
         fetchData();
     }, []);
