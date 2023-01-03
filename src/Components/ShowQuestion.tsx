@@ -4,7 +4,8 @@ import { QuestionListContext } from '../Context/QuestionsListContext';
 import { GroupContext } from '../Context/GroupContext';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import { HttpRequestBuilder } from '../common/HttpRequest';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Block = styled(Paper)(({ theme }) => ({
     backgroundColor:
@@ -20,17 +21,38 @@ const Block = styled(Paper)(({ theme }) => ({
 export default function ShowQuestion() {
     const { questionList } = React.useContext(QuestionListContext);
     const { roundCounter } = React.useContext(GroupContext);
-    const holeFrage = new HttpRequestBuilder()
-        .get()
-        .url('https://api.ihnn.x5f.de/questions')
-        .key('frage')
-        .build();
+    const [apiResponse, setApiResponse] = useState(null);
+
+    useEffect(() => {
+        /* GET Request to API using axios */
+        async function fetchData() {
+            const response = await axios.get(
+                'https://api.ihnn.x5f.de/questions',
+            );
+            /* strip key "data" from response */
+            const resp = response.data;
+            const { data } = resp;
+            /* object with keys {_id, question, category, __v} is written to apiResponse */
+            setApiResponse(data);
+            /* to do: @Jannik
+             * Put object to correct list/object for questions
+             * randomize list
+             * show just question and maybe category.
+             * test & remove to do. */
+        }
+        fetchData();
+    }, []);
 
     return (
         <>
             <Block elevation={10}>
                 <h3>Ich habe noch nie ...</h3>
-                <Block sx={{ backgroundColor: '#bfb59e' }}>
+                <Block sx={{ backgroundColor: '#eeeeee' }}>
+                    {apiResponse ? (
+                        <div>{JSON.stringify(apiResponse)}</div>
+                    ) : (
+                        <div>Loading...</div>
+                    )}
                     <Typography
                         color="inherit" //Farbe des Testfragen Textes
                     >
