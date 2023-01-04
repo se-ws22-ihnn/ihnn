@@ -30,3 +30,6 @@ jobs:
         docker build . --tag ghcr.io/se-ws22-ihnn/ihnn:latest --tag ghcr.io/se-ws22-ihnn/ihnn:${{ steps.commit.outputs.short }}
         docker push ghcr.io/se-ws22-ihnn/ihnn:${{ steps.commit.outputs.short }}
         docker push ghcr.io/se-ws22-ihnn/ihnn:latest
+
+    - name: Ping webhook
+      run: curl -X POST ${{ secrets.DEPLOY_WEBHOOK }}
