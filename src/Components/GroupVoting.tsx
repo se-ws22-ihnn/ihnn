@@ -16,9 +16,6 @@ import { GroupContext } from '../Context/GroupContext';
 import { useState } from 'react';
 import HandlePlayerVoting from './HandlePlayerVoting';
 
-/* !!!!! aktuell keine Verwendung weil diese Componente in die Game Komponente ausgelagert wurde !!!!
-   Dies kann sich aber auch wieder ändern je nach dem wie ich eine Lösung finde (Jannik) */
-
 const Block = styled(Paper)(({ theme }) => ({
     backgroundColor:
         theme.palette.mode === 'dark'

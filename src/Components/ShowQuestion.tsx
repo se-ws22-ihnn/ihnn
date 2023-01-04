@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { Table, TableContainer, Typography } from '@mui/material';
-import { QuestionListContext } from '../Context/QuestionsListContext';
+import { Typography } from '@mui/material';
 import { GroupContext } from '../Context/GroupContext';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import { QuestionListContext } from '../Context/QuestionsListContext';
+
 
 const Block = styled(Paper)(({ theme }) => ({
     backgroundColor:
@@ -17,9 +18,9 @@ const Block = styled(Paper)(({ theme }) => ({
 }));
 
 export default function ShowQuestion() {
-    const { questionList } = React.useContext(QuestionListContext);
     const { roundCounter } = React.useContext(GroupContext);
-
+    const { questionList } =
+        React.useContext(QuestionListContext);
     return (
         <>
             <Block elevation={10}>
@@ -28,13 +29,8 @@ export default function ShowQuestion() {
                     <Typography
                         color="inherit" //Farbe des Testfragen Textes
                     >
-                        {questionList[roundCounter - 1].questionText}
+                        {(questionList?.length ?? 0) > 0 && questionList[roundCounter - 1].question}
                     </Typography>
-
-                    {/* aktuell wird jede frage in der liste angezeigt, da noch nicht auf einen index gezeigt wird */}
-                    {/* {questionList.map((currentQuestion, roundCounter) => (
-                    <Typography>{currentQuestion.questionText}</Typography>
-                ))} */}
                 </Block>
             </Block>
         </>
