@@ -170,6 +170,7 @@ export function AddGroupMember() {
             name: Yup.string()
                 .required('Required')
                 .matches(/.*\S.*/, 'Keine Leerzeichen')
+                .matches(/^[a-zA-Z0-9\s]*$/, 'Keine Sonderzeichen')
                 .max(20, 'max. 20 Buchstaben erlaubt')
                 .min(3, 'min. 3 Buchstaben nötig'),
         }),
