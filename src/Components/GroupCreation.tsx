@@ -164,6 +164,7 @@ export function AddGroupMember() {
         },
         onSubmit: (values) => {
             addPlayerToGroup(values.name, values.color);
+            formik.resetForm();
         },
         validationSchema: Yup.object({
             name: Yup.string()
