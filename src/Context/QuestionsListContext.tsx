@@ -9,10 +9,10 @@ type ContextProps = {
 };
 //context variable with initial values
 const initValues: ContextProps = {
-  questionList: [],
-  setQuestionList: function (value: any): void {
-    throw new Error('Function not implemented.');
-  }
+    questionList: [],
+    setQuestionList: function (value: any): void {
+        throw new Error('Function not implemented.');
+    },
 };
 export const QuestionListContext = createContext<ContextProps>(initValues);
 
@@ -23,7 +23,9 @@ type ProviderProps = {
 
 export const QuestionListContextProvider = ({ children }: ProviderProps) => {
     // erstellung der Frageliste und zuweisung der default fragen per useState
-    const [questionList, setQuestionList] = useState<Question[]>([/*leere Liste*/]);
+    const [questionList, setQuestionList] = useState<Question[]>([
+        /*leere Liste*/
+    ]);
 
     return (
         <QuestionListContext.Provider

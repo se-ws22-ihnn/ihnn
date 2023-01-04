@@ -4,9 +4,8 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import ExploreIcon from '@mui/icons-material/Explore';
-import { Button, Divider, Stack } from '@mui/material';
+import { Divider, Stack } from '@mui/material';
 import CreateQuestion from './CreateQuestion';
-import ThemeController from './ThemeController';
 import AboutIhnnDialog from './AboutIHNN';
 
 export default function ButtonAppBar() {

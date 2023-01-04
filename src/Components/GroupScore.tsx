@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
-import { Avatar, Button, Stack } from '@mui/material';
+import { Avatar, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // Table Imports
 import {

@@ -6,7 +6,7 @@ import { QuestionListContext } from '../Context/QuestionsListContext';
 import FinalScores from './FinalScores';
 import Game from './Game';
 import PrepareGame from './PrepareGame';
-import {Question} from '../types/questionType'
+import { Question } from '../types/questionType';
 // icon imports
 import FeedbackIcon from '@mui/icons-material/Feedback';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
@@ -15,8 +15,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 export default function GameStateMachine() {
     const { group, setRoundCounter } = React.useContext(GroupContext);
-    const { setQuestionList } =
-        React.useContext(QuestionListContext);
+    const { setQuestionList } = React.useContext(QuestionListContext);
 
     const [state, setState] = useState(0);
     /*  States beschreibung:
@@ -31,15 +30,13 @@ export default function GameStateMachine() {
         const { data } = await response.json();
         const convertedData = data as Question[];
         // 2. Questlist durchmischen
-        const shuffledArray = convertedData.sort(
-            (a, b) => 0.5 - Math.random(),
-        );
+        const shuffledArray = convertedData.sort((a, b) => 0.5 - Math.random());
 
         setQuestionList([...shuffledArray]);
-    }
+    };
 
-    const stateObject : {[key:string]: () => Promise<void> | undefined} = {
-        0: async ()  => {
+    const stateObject: { [key: string]: () => Promise<void> | undefined } = {
+        0: async () => {
             await loadQuestions();
         },
         2: async () => {
@@ -60,10 +57,10 @@ export default function GameStateMachine() {
             await loadQuestions();
             // DEBUG: console.log("neue Liste:", questionList);
         },
-    }
+    };
 
     const increaseState = () => {
-        if(stateObject[state]){
+        if (stateObject[state]) {
             stateObject[state]();
         }
         if (state >= 2) {

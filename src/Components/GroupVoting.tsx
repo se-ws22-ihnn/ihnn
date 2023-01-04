@@ -13,7 +13,6 @@ import {
 } from '@mui/material';
 // icon imports
 import { GroupContext } from '../Context/GroupContext';
-import { useState } from 'react';
 import HandlePlayerVoting from './HandlePlayerVoting';
 
 const Block = styled(Paper)(({ theme }) => ({

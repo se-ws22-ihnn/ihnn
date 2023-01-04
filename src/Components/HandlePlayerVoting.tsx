@@ -2,7 +2,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { IconButton } from '@mui/material';
 import { Player } from '../types/playerType';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 type handlePlayerInterface = {
     currentPlayer: Player;
