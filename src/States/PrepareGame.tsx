@@ -8,10 +8,10 @@ export default function PrepareGame() {
         <Box sx={{ flexGrow: 0, m: 2 }}>
             <h2>Gruppe erstellen</h2>
             <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} md={6}>
                     <AddGroupMember />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} md={6}>
                     <ListGroupMember />
                 </Grid>
             </Grid>

@@ -28,10 +28,10 @@ export default function Game() {
         <Box sx={{ flexGrow: 0, m: 2 }}>
             <h2>Runde: {roundCounter}</h2>
             <Grid container spacing={2}>
-                <Grid xs={12} sm={6}>
+                <Grid xs={12} md={6}>
                     <ShowQuestion />
                 </Grid>
-                <Grid xs={12} sm={6}>
+                <Grid xs={12} md={6}>
                     <GroupVoting key={roundCounter} />
                 </Grid>
                 <Grid xs={12}>
