@@ -8,18 +8,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 import QuizIcon from '@mui/icons-material/Quiz';
 import { QuestionListContext } from '../Context/QuestionsListContext';
 import { Question } from '../types/questionType';
-import { HttpRequestBuilder } from '../common/HttpRequest';
-import { PostPayload } from '../common/RequestResolver';
+import axios from 'axios';
 
 export default function CreateQuestionByDialog() {
     // Handle Open / Close
     const [open, setOpen] = React.useState(false);
-    const pushQuestion = new HttpRequestBuilder()
-        .post()
-        .url('https://api.ihnn.x5f.de/questions')
-        .key(['question', 'kategorie'])
-        .mutable()
-        .build();
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -36,21 +29,25 @@ export default function CreateQuestionByDialog() {
 
     const addQuestionToList = () => {
         const newQuestion: Question = {
-            id:
-                questionList.length +
-                1 /* Hier muss sich was besseres überlegt werden */,
-            questionText: questionTextInput,
-            kategorie: 'default',
+            question: questionTextInput,
+            category: 'default',
         };
         setQuestionList([...questionList, newQuestion]);
 
-        alert(
-            'A Question was submitted: ' + questionTextInput,
-        ); /* Ausgabe zeigt auch den nuesten eintrag nicht */
-        /* console.log(questionList) */
-
-        /* pushQuestion.mutate(new PostPayload({ ...newQuestion }), {}); */
-        /* funktionalität klappt nicht, danke Typescript */
+        axios
+            .post('https://api.ihnn.x5f.de/questions', newQuestion)
+            .then((response) => {
+                setQuestionTextInput('');
+                // setzt die Eingabe im Textfeld zurück
+                handleClose();
+                // schließt das Dialogfenster
+            })
+            .catch((error) => {
+                alert(
+                    'Ein Fehler ist aufgetreten, bitte versuche es später erneut.',
+                );
+                // Spuckt eine Fehlermeldung aus.
+            });
     };
 
     return (
