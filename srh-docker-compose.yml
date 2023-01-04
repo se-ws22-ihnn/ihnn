@@ -38,7 +38,7 @@ services:
         depends_on:
             - mongo
 
-    mongodb:
+    mongo:
         image: mongo
         restart: unless-stopped
         ports:
