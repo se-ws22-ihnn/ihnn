@@ -27,9 +27,9 @@ export default function AboutIhnnDialog() {
                 INFO
             </Button>
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>What is IHNN: BucketList Edition?</DialogTitle>
+                <DialogTitle>Über IHNN: BucketList Edition?</DialogTitle>
                 <Divider />
-                
+
                 <Box
                     component="img"
                     /*                         sx={{
@@ -44,23 +44,23 @@ export default function AboutIhnnDialog() {
                     justifyContent="center"
                     alignItems="center"
                 />
-                
 
-                <Typography 
-                align="justify" sx={{ ml: 3, mr: 3, mt: 1, mb: 1 }}
-                color="inherit"
+                <Typography
+                    align="justify"
+                    sx={{ ml: 3, mr: 3, mt: 1, mb: 1 }}
+                    color="inherit"
                 >
                     IHNN steht für <i>Ich habe noch nie</i> und basiert auf dem
                     belieben Trinkspiel mit identischen namen. In diesem Spiel
                     wird der Gruppe bezüglich einer beliebigen Aktivität eine
                     Frage gestellt. Unsere Version des Spiels bezieht sich auf
-                    Dinge die man auf eine <i>Bucketliste</i> schreiben würde, daher
-                    muss die Person mit der meisten Erfahrung in diesem Gebiet,
-                    im gegensatz zum namensgebenden Trinkspiel, nur davon
-                    erzählen anstatt einen <i>Shot</i> zu nehmen. Da es sich bei
-                    diesem Projekt um eine Studienleistung handelt, haben wir
-                    natürlich, vernünftig wie wir sind, diese Spielregel
-                    angepasst.
+                    Dinge die man auf eine <i>Bucketliste</i> schreiben würde,
+                    daher muss die Person mit der meisten Erfahrung in diesem
+                    Gebiet, im gegensatz zum namensgebenden Trinkspiel, nur
+                    davon erzählen anstatt einen <i>Shot</i> zu nehmen. Da es
+                    sich bei diesem Projekt um eine Studienleistung handelt,
+                    haben wir natürlich, vernünftig wie wir sind, diese
+                    Spielregel angepasst.
                 </Typography>
 
                 <DialogActions sx={{ mr: 2 }}>
@@ -76,9 +76,10 @@ export default function AboutIhnnDialog() {
                     >
                         zum GitHub Repo
                     </Button>
-                    <Button 
-                    variant="outlined" onClick={handleClose}
-                    color="inherit"
+                    <Button
+                        variant="outlined"
+                        onClick={handleClose}
+                        color="inherit"
                     >
                         verstanden
                     </Button>

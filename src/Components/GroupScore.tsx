@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
-import { Avatar, Button } from '@mui/material';
+import { Avatar, Button, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // Table Imports
 import {
@@ -16,6 +16,7 @@ import { GroupContext } from '../Context/GroupContext';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { PieChart } from 'react-minimal-pie-chart';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
 const Block = styled(Paper)(({ theme }) => ({
     backgroundColor:
@@ -60,12 +61,26 @@ export default function GroupScore() {
                                         {currentPlayer.name}
                                     </TableCell>
                                     <TableCell align="right">
-                                        <CheckCircleIcon color="success" />
-                                        {currentPlayer.iDidCounter}
+                                        <Stack
+                                            direction="row"
+                                            justifyContent="flex-end"
+                                            alignItems="center"
+                                            gap={2}
+                                        >
+                                            <CheckCircleIcon color="success" />
+                                            {currentPlayer.iDidCounter}
+                                        </Stack>
                                     </TableCell>
                                     <TableCell align="right">
-                                        <CancelIcon color="error" />
-                                        {currentPlayer.iDidNotCounter}
+                                        <Stack
+                                            direction="row"
+                                            justifyContent="flex-end"
+                                            alignItems="center"
+                                            gap={2}
+                                        >
+                                            <CancelIcon color="error" />
+                                            {currentPlayer.iDidNotCounter}
+                                        </Stack>
                                     </TableCell>
                                 </TableRow>
                             ))}
@@ -93,8 +108,8 @@ export function GroupScoreChart() {
         }, 0);
 
     const voteData = [
-        { title: 'Yes', value: allIDid, color: '#013e4f' },
-        { title: 'No', value: allIDidNot, color: '#ac0014' },
+        { title: 'Yes', value: allIDid, color: '#3a883d' },
+        { title: 'No', value: allIDidNot, color: '#dd3a2e' },
     ];
 
     if (allIDid === 0 && allIDidNot === 0) {
@@ -103,7 +118,10 @@ export function GroupScoreChart() {
                 <Block elevation={10}>
                     <h3>Verteilung aller Stimmen</h3>
                     <Block sx={{ bgcolor: '#bfb59e' }}>
-                        <p>Es wurden keine Stimmen abgegeben</p>
+                        <Stack direction="row" alignItems="center" gap={1}>
+                            <ErrorOutlineIcon />
+                            <p>Es wurden keine Stimmen abgegeben</p>
+                        </Stack>
                     </Block>
                 </Block>
             </>
@@ -114,22 +132,23 @@ export function GroupScoreChart() {
         <>
             <Block elevation={10}>
                 <h3>Verteilung aller Stimmen</h3>
-                <PieChart
-                    data={voteData}
-                    lineWidth={20}
-                    paddingAngle={18}
-                    radius={50}
-                    style={{ height: '500px' }}
-                    rounded
-                    label={({ dataEntry }) => dataEntry.value}
-                    /* JSX props should not use arrow functions ? */
-                    labelStyle={(index) => ({
-                        fill: voteData[index].color,
-                        fontSize: '8px',
-                        fontFamily: 'sans-serif',
-                    })}
-                    labelPosition={60}
-                />
+                <Block sx={{ bgcolor: '#bfb59e' }}>
+                    <PieChart
+                        data={voteData}
+                        lineWidth={20}
+                        paddingAngle={18}
+                        radius={40}
+                        style={{ height: '500px' }}
+                        rounded
+                        label={({ dataEntry }) => dataEntry.value}
+                        labelStyle={(index) => ({
+                            fill: voteData[index].color,
+                            fontSize: '8px',
+                            fontFamily: 'sans-serif',
+                        })}
+                        labelPosition={60}
+                    />
+                </Block>
             </Block>
         </>
     );

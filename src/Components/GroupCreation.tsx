@@ -7,6 +7,7 @@ import {
     Button,
     IconButton,
     MenuItem,
+    Stack,
     TextField,
 } from '@mui/material';
 // Table Imports
@@ -26,6 +27,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { GroupContext } from '../Context/GroupContext';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
 // own palette of colors available for the avatar
 const avatarcolors = {
@@ -76,7 +78,13 @@ export function ListGroupMember() {
                 <Block elevation={10}>
                     <h3>Aktuelle Spieler</h3>
                     <Block sx={{ bgcolor: '#bfb59e' }}>
-                        <p>Keine Spieler vorhanden</p>
+                        <Stack direction="row" alignItems="center" gap={1}>
+                            <ErrorOutlineIcon />
+                            <p>
+                                Zum Spielen werden mindestens zwei Spieler
+                                benötigt.
+                            </p>
+                        </Stack>
                     </Block>
                 </Block>
             </>
@@ -186,82 +194,117 @@ export function AddGroupMember() {
                 <Box component="form" onSubmit={formik.handleSubmit} noValidate>
                     <h3>Spieler hinzuf&uuml;gen</h3>
                     {/* <FormControl fullWidth > */}
-                    {/* <InputLabel id="name-label">Name</InputLabel> */}
-                    <TextField
-                        required
-                        label="Spielername"
-                        sx={{ marginBottom: 1, mr: 2 }}
-                        /* value={playername} */
-                        /* onChange={(event) => setPlayername(event.target.value)} */
-                        onChange={formik.handleChange}
-                        value={formik.values.name}
-                        error={formik.errors.name !== undefined}
-                        helperText={formik.errors.name}
-                        name="name"
-                    />
-                    <Select
-                        /* value={selectedColor}
+                    {/* <InputLabel id="name-label">Name</InputLabel>*/}
+                    <Block sx={{ bgcolor: '#bfb59e' }}>
+                        <TextField
+                            required
+                            label="Spielername"
+                            sx={{ marginBottom: 1, mr: 2, marginTop: '10px' }}
+                            /* value={playername} */
+                            /* onChange={(event) => setPlayername(event.target.value)} */
+                            onChange={formik.handleChange}
+                            value={formik.values.name}
+                            error={formik.errors.name !== undefined}
+                            helperText={formik.errors.name}
+                            name="name"
+                        />
+                        <Select
+                            /* value={selectedColor}
                         onChange={(event) =>
                             setSelectedColor(event.target.value)
                         } */
-                        onChange={formik.handleChange}
-                        value={formik.values.color}
-                        name="color"
-                    >
-                        <MenuItem
-                            sx={{ bgcolor: avatarcolors.amber }}
-                            value={avatarcolors.amber}
+                            sx={{
+                                marginBottom: 1,
+                                marginTop: '10px',
+                                backgroundColor: formik.values.color,
+                            }}
+                            onChange={formik.handleChange}
+                            value={formik.values.color}
+                            name="color"
                         >
-                            Orange
-                        </MenuItem>
-                        <MenuItem
-                            sx={{ bgcolor: avatarcolors.pink }}
-                            value={avatarcolors.pink}
+                            <MenuItem
+                                sx={{
+                                    bgcolor: avatarcolors.amber,
+                                    ':hover': { color: avatarcolors.amber },
+                                    ':active': { color: avatarcolors.amber },
+                                }}
+                                value={avatarcolors.amber}
+                            >
+                                Orange
+                            </MenuItem>
+                            <MenuItem
+                                sx={{
+                                    bgcolor: avatarcolors.pink,
+                                    ':hover': { color: avatarcolors.pink },
+                                    ':active': { color: avatarcolors.pink },
+                                }}
+                                value={avatarcolors.pink}
+                            >
+                                Pink
+                            </MenuItem>
+                            <MenuItem
+                                sx={{
+                                    bgcolor: avatarcolors.purple,
+                                    ':hover': { color: avatarcolors.purple },
+                                    ':active': { color: avatarcolors.purple },
+                                }}
+                                value={avatarcolors.purple}
+                            >
+                                Lila
+                            </MenuItem>
+                            <MenuItem
+                                sx={{
+                                    bgcolor: avatarcolors.blue,
+                                    ':hover': { color: avatarcolors.blue },
+                                    ':active': { color: avatarcolors.blue },
+                                }}
+                                value={avatarcolors.blue}
+                            >
+                                Blau
+                            </MenuItem>
+                            <MenuItem
+                                sx={{
+                                    bgcolor: avatarcolors.teal,
+                                    ':hover': { color: avatarcolors.teal },
+                                    ':active': { color: avatarcolors.teal },
+                                }}
+                                value={avatarcolors.teal}
+                            >
+                                Türkis
+                            </MenuItem>
+                            <MenuItem
+                                sx={{
+                                    bgcolor: avatarcolors.green,
+                                    ':hover': { color: avatarcolors.green },
+                                    ':active': { color: avatarcolors.green },
+                                }}
+                                value={avatarcolors.green}
+                            >
+                                Grün
+                            </MenuItem>
+                            <MenuItem
+                                sx={{
+                                    bgcolor: avatarcolors.lime,
+                                    ':hover': { color: avatarcolors.lime },
+                                    ':active': { color: avatarcolors.lime },
+                                }}
+                                value={avatarcolors.lime}
+                            >
+                                Limette
+                            </MenuItem>
+                        </Select>
+                        <br></br>
+                        <Button
+                            type="submit"
+                            disabled={!formik.isValid}
+                            variant="contained"
+                            endIcon={<PersonAddIcon />}
+                            /* onClick={addPlayerToGroup} */
                         >
-                            Pink
-                        </MenuItem>
-                        <MenuItem
-                            sx={{ bgcolor: avatarcolors.purple }}
-                            value={avatarcolors.purple}
-                        >
-                            Lila
-                        </MenuItem>
-                        <MenuItem
-                            sx={{ bgcolor: avatarcolors.blue }}
-                            value={avatarcolors.blue}
-                        >
-                            Blau
-                        </MenuItem>
-                        <MenuItem
-                            sx={{ bgcolor: avatarcolors.teal }}
-                            value={avatarcolors.teal}
-                        >
-                            Türkis
-                        </MenuItem>
-                        <MenuItem
-                            sx={{ bgcolor: avatarcolors.green }}
-                            value={avatarcolors.green}
-                        >
-                            Grün
-                        </MenuItem>
-                        <MenuItem
-                            sx={{ bgcolor: avatarcolors.lime }}
-                            value={avatarcolors.lime}
-                        >
-                            Limette
-                        </MenuItem>
-                    </Select>
-                    <br></br>
-                    <Button
-                        type="submit"
-                        disabled={!formik.isValid}
-                        variant="contained"
-                        endIcon={<PersonAddIcon />}
-                        /* onClick={addPlayerToGroup} */
-                    >
-                        Hinzufügen
-                    </Button>
-                    {/* </FormControl> */}
+                            Hinzufügen
+                        </Button>
+                        {/* </FormControl> */}
+                    </Block>
                 </Box>
             </Block>
         </>

@@ -5,7 +5,6 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import { QuestionListContext } from '../Context/QuestionsListContext';
 
-
 const Block = styled(Paper)(({ theme }) => ({
     backgroundColor:
         theme.palette.mode === 'dark'
@@ -19,17 +18,17 @@ const Block = styled(Paper)(({ theme }) => ({
 
 export default function ShowQuestion() {
     const { roundCounter } = React.useContext(GroupContext);
-    const { questionList } =
-        React.useContext(QuestionListContext);
+    const { questionList } = React.useContext(QuestionListContext);
     return (
         <>
             <Block elevation={10}>
                 <h3>Ich habe noch nie ...</h3>
-                <Block sx={{ backgroundColor: '#eeeeee' }}>
+                <Block sx={{ backgroundColor: '#bfb59e' }}>
                     <Typography
                         color="inherit" //Farbe des Testfragen Textes
                     >
-                        {(questionList?.length ?? 0) > 0 && questionList[roundCounter - 1].question}
+                        {(questionList?.length ?? 0) > 0 &&
+                            questionList[roundCounter - 1].question}
                     </Typography>
                 </Block>
             </Block>
