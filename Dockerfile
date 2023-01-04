@@ -1,5 +1,5 @@
 # dockerizing our app (alpine is a lightweight linux distro)
-FROM node:18-alpine
+FROM node:18-alpine AS build
 
 # using /usr/app as work directory
 WORKDIR /usr/app
@@ -17,14 +17,6 @@ COPY ./ ./
 # build the app
 RUN npm run build
 
-# tell the app that it's running in production
-ENV NODE_ENV production
-
-# expose port 3000
-EXPOSE 3000
-
-# let npx serve the build app
-CMD [ "npx", "serve", "build" ]
-
-# start command // dev mode
-# CMD ["npm", "start"]
+# nginx as web server - exposing port 80
+FROM nginx
+COPY --from=build /usr/app/build /usr/share/nginx/html

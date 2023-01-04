@@ -26,6 +26,7 @@ jobs:
     
     - name: Build the Docker image and tag it with todays date, also as latest build
       run: |
+        docker pull ghcr.io/se-ws22-ihnn/ihnn:latest
         docker build . --tag ghcr.io/se-ws22-ihnn/ihnn:latest --tag ghcr.io/se-ws22-ihnn/ihnn:${{ steps.commit.outputs.short }}
         docker push ghcr.io/se-ws22-ihnn/ihnn:${{ steps.commit.outputs.short }}
         docker push ghcr.io/se-ws22-ihnn/ihnn:latest

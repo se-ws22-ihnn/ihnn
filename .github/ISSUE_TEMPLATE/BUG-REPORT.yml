@@ -1,0 +1,47 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke, dass du dir die Zeit nimmst um einen Fehler zu melden!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Was ist passiert
+      description: Erzähl auch, was du erwartet hättest?
+      placeholder: Genug Platz für alles was du schreiben möchtest!
+      value: "Ich habe ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Mit welchem Browser hast du die Seite aufgerufen?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+  - type: dropdown
+    id: device
+    attributes:
+      label: An was für einem Gerät bist du?
+      options:
+        - Smartphone Android
+        - Smartphone iOS / Apple
+        - Tablet Android
+        - Tablet iOS / Apple
+        - Computer Windows
+        - Computer MacOS / Apple
+        - Computer Linux
+        - anderes
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log / Console Output
+      description: Falls du Fehlermeldungen aus der Console hast, kannst du diese gerne hier einfügen. Falls du nicht verstehst, was gemeint ist, überspringe diese Frage einfach.
+      render: shell

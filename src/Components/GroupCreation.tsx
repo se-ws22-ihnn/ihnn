@@ -164,17 +164,21 @@ export function AddGroupMember() {
         },
         onSubmit: (values) => {
             addPlayerToGroup(values.name, values.color);
+            formik.resetForm();
         },
         validationSchema: Yup.object({
             name: Yup.string()
                 .required('Required')
                 .matches(/.*\S.*/, 'Keine Leerzeichen')
+                .matches(/^[a-zA-Z0-9\s]*$/, 'Keine Sonderzeichen')
                 .max(20, 'max. 20 Buchstaben erlaubt')
                 .min(3, 'min. 3 Buchstaben nötig'),
         }),
     });
 
     const addPlayerToGroup = (name: string, color: string) => {
+        name = name.trim();
+
         const newPlayer: Player = {
             playerId: group.length + 1,
             name: name,
