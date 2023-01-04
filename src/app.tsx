@@ -6,9 +6,24 @@ import { QuestionListContextProvider } from './Context/QuestionsListContext';
 import lightTheme from './Themes/light';
 import GameStateMachine from './States/GameStateMachine';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import React, { useEffect } from 'react';
 
 export default function App() {
     const queryClient = new QueryClient();
+
+    useEffect(() => {
+        const onBeforeUnload = (e: BeforeUnloadEvent) => {
+            // Customize the message
+            e.preventDefault();
+            e.returnValue = 'Reloading deletes your session!';
+        };
+
+        window.addEventListener('beforeunload', onBeforeUnload);
+
+        return () => {
+            window.removeEventListener('beforeunload', onBeforeUnload);
+        };
+    }, []);
 
     return (
         <ThemeProvider theme={lightTheme}>
@@ -28,20 +43,8 @@ export default function App() {
                             }}
                         >
                             {' '}
-                            {/*Hintergrund und Logo initialisierung*/}
-                            {/* style={background.image}  */}
                             <ButtonAppBar />
                             <GameStateMachine />
-                            {/* <Box
-                                      component="img"
-                                      alt="IHNN Logo"
-                                      src="images/logo512.png"
-                                      minHeight= '10vh'
-                                      maxHeight= '100vh'
-                                      zIndex="-1"
-                                      />
-
-                          <Box/>  */}
                         </div>
                     </GroupContextProvider>
                 </QuestionListContextProvider>
