@@ -3,14 +3,8 @@ import { Typography } from '@mui/material';
 import { GroupContext } from '../Context/GroupContext';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import { useState, useEffect } from 'react';
+import { QuestionListContext } from '../Context/QuestionsListContext';
 
-// Type for api question list
-type apiQuestion = {
-    id: string;
-    text: string;
-    category: string;
-};
 
 const Block = styled(Paper)(({ theme }) => ({
     backgroundColor:
@@ -25,28 +19,8 @@ const Block = styled(Paper)(({ theme }) => ({
 
 export default function ShowQuestion() {
     const { roundCounter } = React.useContext(GroupContext);
-    const [questionList, setQuestionList] = useState<apiQuestion[]>([]);
-
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('https://api.ihnn.x5f.de/questions');
-            const { data } = await response.json();
-            const convertedData: apiQuestion[] = data.map((item: any) => ({
-                id: item.id,
-                text: item.question,
-                category: item.category,
-            }));
-            // 2. Questlist durchmischen
-            const shuffledArray = convertedData.sort(
-                (a, b) => 0.5 - Math.random(),
-            );
-
-            setQuestionList([...shuffledArray]);
-        }
-
-        fetchData();
-    }, []);
-
+    const { questionList } =
+        React.useContext(QuestionListContext);
     return (
         <>
             <Block elevation={10}>
@@ -55,8 +29,7 @@ export default function ShowQuestion() {
                     <Typography
                         color="inherit" //Farbe des Testfragen Textes
                     >
-                        {(questionList?.length ?? 0) > 0 &&
-                            questionList[roundCounter - 1].text}
+                        {(questionList?.length ?? 0) > 0 && questionList[roundCounter - 1].question}
                     </Typography>
                 </Block>
             </Block>

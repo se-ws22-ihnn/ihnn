@@ -6,6 +6,7 @@ import { QuestionListContext } from '../Context/QuestionsListContext';
 import FinalScores from './FinalScores';
 import Game from './Game';
 import PrepareGame from './PrepareGame';
+import {Question} from '../types/questionType'
 // icon imports
 import FeedbackIcon from '@mui/icons-material/Feedback';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
@@ -14,7 +15,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 export default function GameStateMachine() {
     const { group, setRoundCounter } = React.useContext(GroupContext);
-    const { questionList, setQuestionList } =
+    const { setQuestionList } =
         React.useContext(QuestionListContext);
 
     const [state, setState] = useState(0);
@@ -25,34 +26,50 @@ export default function GameStateMachine() {
     3 = 0 Startpage
     */
 
+    const loadQuestions = async () => {
+        const response = await fetch('https://api.ihnn.x5f.de/questions');
+        const { data } = await response.json();
+        const convertedData = data as Question[];
+        // 2. Questlist durchmischen
+        const shuffledArray = convertedData.sort(
+            (a, b) => 0.5 - Math.random(),
+        );
+
+        setQuestionList([...shuffledArray]);
+    }
+
+    const stateObject : {[key:string]: () => Promise<void> | undefined} = {
+        0: async ()  => {
+            await loadQuestions();
+        },
+        2: async () => {
+            // 2. Score der Gruppe zurück setzen
+            // group.map((currentPlayer)=>{currentPlayer.iDidCounter = 0,currentPlayer.iDidNotCounter = 0}); //<== eslint mag das nicht
+            group.map((currentPlayer) => {
+                return (currentPlayer.iDidCounter = 0);
+            });
+            group.map((currentPlayer) => {
+                return (currentPlayer.iDidNotCounter = 0);
+            });
+
+            // 3. Roundcounter zurücksetzen
+            setRoundCounter(1);
+
+            // 4. Fragenkathalog durchmischen
+            // DEBUG: console.log("alte Liste:", questionList);
+            await loadQuestions();
+            // DEBUG: console.log("neue Liste:", questionList);
+        },
+    }
+
     const increaseState = () => {
+        if(stateObject[state]){
+            stateObject[state]();
+        }
         if (state >= 2) {
             setState(0);
             // um wieder auf dem ersten State zu landen ginge auch mit modulo%
         } else setState(state + 1);
-    };
-
-    const handleGameReset = () => {
-        // 1. State erhöhen
-        increaseState();
-
-        // 2. Score der Gruppe zurück setzen
-        // group.map((currentPlayer)=>{currentPlayer.iDidCounter = 0,currentPlayer.iDidNotCounter = 0}); //<== eslint mag das nicht
-        group.map((currentPlayer) => {
-            return (currentPlayer.iDidCounter = 0);
-        });
-        group.map((currentPlayer) => {
-            return (currentPlayer.iDidNotCounter = 0);
-        });
-
-        // 3. Roundcounter zurücksetzen
-        setRoundCounter(1);
-
-        // 4. Fragenkathalog durchmischen
-        // DEBUG: console.log("alte Liste:", questionList);
-        const shuffledArray = questionList.sort((a, b) => 0.5 - Math.random());
-        setQuestionList([...shuffledArray]);
-        // DEBUG: console.log("neue Liste:", questionList);
     };
 
     return (
@@ -114,7 +131,7 @@ export default function GameStateMachine() {
                 <>
                     <FinalScores />
                     <Button
-                        onClick={handleGameReset}
+                        onClick={increaseState}
                         variant="contained"
                         sx={{ m: 2 }}
                         startIcon={<HomeIcon />}
