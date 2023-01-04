@@ -1,5 +1,5 @@
 export type Question = {
-    id: number;
+    id?: number;
     questionText: string;
     kategorie?: string;
 };
