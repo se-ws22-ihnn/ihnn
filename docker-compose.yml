@@ -1,0 +1,24 @@
+version: "3.9"
+
+volumes:
+    mongo-data: {}
+
+services:
+    app:
+        image: ghcr.io/se-ws22-ihnn/ihnn:latest
+        restart: unless-stopped
+        ports:
+            - 3535:3000
+        environment:
+            - APP_DB_HOST=mongodb
+            - APP_DB_USER=root
+            - APP_DB_PASS=password
+
+    mongo:
+        image: mongo
+        restart: unless-stopped
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=root
+            - MONGO_INITDB_ROOT_PASSWORD=password
+        volumes:
+            - mongo-data:/data/db
