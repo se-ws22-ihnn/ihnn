@@ -17,16 +17,26 @@ services:
     app:
         image: ghcr.io/se-ws22-ihnn/ihnn:latest
         restart: unless-stopped
-        ports:
-            - 3535:80
+        expose:
+            - 80
         environment:
             - APP_DB_HOST=mongodb
             - APP_DB_USER=${DBUSER}
             - APP_DB_PASS=${DBPASS}
-        links:
-            - mongodb
         depends_on:
-            - mongodb
+            - api
+
+    api:
+        image: ghcr.io/se-ws22-ihnn/ihnn-api:latest
+        restart: unless-stopped
+        expose:
+            - 3000
+        environment:
+            - MONGO=${MONGO_URI}
+        links:
+            - mongo
+        depends_on:
+            - mongo
 
     mongodb:
         image: mongo
