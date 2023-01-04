@@ -5,12 +5,12 @@
 <td style="vertical-align: top"><img src="https://img.shields.io/github/actions/workflow/status/se-ws22-ihnn/ihnn/docker-image.yml?branch=main&label=build" alt="build status"></td>
 </tr></table>
 
-Dieses Projekt ist ein Projekt im Rahmen der Veranstaltung Software Engineering an der HAW Hamburg. 
+Dieses Projekt ist ein Projekt im Rahmen der Veranstaltung Software Engineering an der HAW Hamburg.
 
-Es basiert auf TypeScript und React, sowie node.js als Server.
+Es basiert auf TypeScript und React, sowie node.js als Server. Da es nur ein Frontend ist, wird der fertige Build in einen Nginx Container übertragen, was das ganze viel schlanker macht.
 
 ```bash
-docker run -p 3000:3000 ghcr.io/se-ws22-ihnn/ihnn:latest
+docker run -p 3000:80 ghcr.io/se-ws22-ihnn/ihnn:latest
 ```
 
 ## Dev
@@ -22,9 +22,9 @@ docker run -p 3000:3000 ghcr.io/se-ws22-ihnn/ihnn:latest
 
 Fehler?
 
-- Prüfen, ob Node.js installiert ist. Falls nicht, installieren. 
-- `node --version` sollte mindestens v16. ausgeben.
-- `npm --version` sollte mindestens 9. ausgeben.
+-   Prüfen, ob Node.js installiert ist. Falls nicht, installieren.
+-   `node --version` sollte mindestens v16. ausgeben.
+-   `npm --version` sollte mindestens 9. ausgeben.
 
 # Build
 
@@ -40,7 +40,7 @@ serve -s build                  # start the server
 
 ```bash
 docker build -t ihnn .          # build the image
-docker run -p 3000:3000 ihnn    # run the image
+docker run -p 3000:80 ihnn    # run the image
 ```
 
 Visit [http://localhost:3000](http://localhost:3000) in your browser.
