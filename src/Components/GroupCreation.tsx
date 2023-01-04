@@ -176,6 +176,8 @@ export function AddGroupMember() {
     });
 
     const addPlayerToGroup = (name: string, color: string) => {
+        name = name.trim();
+
         const newPlayer: Player = {
             playerId: group.length + 1,
             name: name,
