@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# Ich habe noch nie…
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<table><tr>
+<td><img src="public/images/github-socialcard.png" alt="our logo" style="width:300px;"/></td>
+<td style="vertical-align: top"><img src="https://img.shields.io/github/actions/workflow/status/se-ws22-ihnn/ihnn/docker-image.yml?branch=main&label=build" alt="build status"></td>
+</tr></table>
 
-## Available Scripts
+Dieses Projekt ist ein Projekt im Rahmen der Veranstaltung Software Engineering an der HAW Hamburg. 
 
-In the project directory, you can run:
+Es basiert auf TypeScript und React, sowie node.js als Server.
 
-### `npm start`
+```bash
+docker run -p 3000:3000 ghcr.io/se-ws22-ihnn/ihnn:latest
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Dev
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Repository klonen
+2. `npm install` ausführen
+3. `npm start` ausführen
+4. [http://localhost:3000](http://localhost:3000) im Browser öffnen
 
-### `npm test`
+Fehler?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Prüfen, ob Node.js installiert ist. Falls nicht, installieren. 
+- `node --version` sollte mindestens v16. ausgeben.
+- `npm --version` sollte mindestens 9. ausgeben.
 
-### `npm run build`
+# Build
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Node.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run build                   # build the app
+npm install -g serve            # install the server
+serve -s build                  # start the server
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Docker
 
-### `npm run eject`
+```bash
+docker build -t ihnn .          # build the image
+docker run -p 3000:3000 ihnn    # run the image
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Dokumentation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Kommentare im Code sowie im seperaten Repo [ihnn-docs](https://github.com/se-ws22-ihnn/ihnn-docs).
