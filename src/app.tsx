@@ -34,7 +34,7 @@ export default function App() {
                         <div
                             style={{
                                 backgroundImage:
-                                    'url(images/background-logo.png), url(images/light-noise-background.png)',
+                                    'url(images/background-logo.webp), url(images/light-noise-background.png)',
 
                                 minHeight: '100vh',
                                 backgroundRepeat: 'no-repeat, repeat',
