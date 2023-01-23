@@ -51,12 +51,12 @@ export default function AboutIhnnDialog() {
                     color="inherit"
                 >
                     IHNN steht für <i>Ich habe noch nie</i> und basiert auf dem
-                    belieben Trinkspiel mit identischen namen. In diesem Spiel
+                    beliebten Trinkspiel mit identischem Namen. In diesem Spiel
                     wird der Gruppe bezüglich einer beliebigen Aktivität eine
                     Frage gestellt. Unsere Version des Spiels bezieht sich auf
-                    Dinge die man auf eine <i>Bucketliste</i> schreiben würde,
+                    Dinge, die man auf eine <i>Bucketlist</i> schreiben würde,
                     daher muss die Person mit der meisten Erfahrung in diesem
-                    Gebiet, im gegensatz zum namensgebenden Trinkspiel, nur
+                    Gebiet, im Gegensatz zum namensgebenden Trinkspiel, nur
                     davon erzählen anstatt einen <i>Shot</i> zu nehmen. Da es
                     sich bei diesem Projekt um eine Studienleistung handelt,
                     haben wir natürlich, vernünftig wie wir sind, diese
